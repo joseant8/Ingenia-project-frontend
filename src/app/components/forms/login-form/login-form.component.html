@@ -1,0 +1,23 @@
+<p>Formulario login</p>
+
+<mat-card>
+  <form [formGroup]="loginForm" (submit)="login()">
+
+    <mat-form-field>
+      <input matInput formControlName="email" placeholder="Email"/>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput formControlName="password" placeholder="Password"/>
+    </mat-form-field>
+
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">
+        Login
+      </button>
+
+      <button mat-raised-button color="warning" [routerLink]="['/register']"> Crear cuenta </button>
+    </mat-card-actions>
+
+  </form>
+</mat-card>
