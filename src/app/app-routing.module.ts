@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard';
+import { ExpertsPageComponent } from './pages/experts-page/experts-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
-import { ListExpertsComponent } from './pages/list-experts/list-experts.component';
-import { ListTagsComponent } from './pages/list-tags/list-tags.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
+import { TagsPageComponent } from './pages/tags-page/tags-page.component';
 
 const routes: Routes = [
   {
@@ -24,12 +24,12 @@ const routes: Routes = [
   },
   {
     path: 'expertos',
-    component: ListExpertsComponent,
+    component: ExpertsPageComponent,
     canActivate: [AuthGuard]
   },
   {
     path: 'etiquetas',
-    component: ListTagsComponent,
+    component: TagsPageComponent,
     canActivate: [AuthGuard]
   },
   {
