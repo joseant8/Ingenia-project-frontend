@@ -1,4 +1,4 @@
-import { Expert } from './expert';
+import { Expert } from './expert.model';
 
 describe('Expert', () => {
   it('should create an instance', () => {

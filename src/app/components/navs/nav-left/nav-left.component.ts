@@ -9,15 +9,22 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 export class NavLeftComponent implements OnInit {
 
   email:any = '';
+  panelOpenState:boolean = false;
+  userIsLoggedIn = false;
 
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
-    this.email = localStorage.getItem('emailCurrentUser');
+
   }
 
   logout(){
     this.authService.logout();
+  }
+
+  get isLoggedIn(): boolean{
+    this.email = localStorage.getItem('emailCurrentUser');
+    return this.authService.userIsLoggedIn
   }
 
 }

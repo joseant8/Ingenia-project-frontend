@@ -8,6 +8,8 @@ import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatTableModule} from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,7 +22,6 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { ExpertComponent } from './components/expert/expert.component';
 import { TagComponent } from './components/tag/tag.component';
@@ -29,6 +30,7 @@ import { TagsPageComponent } from './pages/tags-page/tags-page.component';
 import { NavUpComponent } from './components/navs/nav-up/nav-up.component';
 import { NavLeftComponent } from './components/navs/nav-left/nav-left.component';
 import { ExpertDetailPageComponent } from './pages/expert-detail-page/expert-detail-page.component';
+import { TagCreatePageComponent } from './pages/tag-create-page/tag-create-page.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,7 @@ import { ExpertDetailPageComponent } from './pages/expert-detail-page/expert-det
     NavUpComponent,
     NavLeftComponent,
     ExpertDetailPageComponent,
+    TagCreatePageComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,11 +57,9 @@ import { ExpertDetailPageComponent } from './pages/expert-detail-page/expert-det
     MatFormFieldModule,
     MatTableModule,
     MatInputModule,
-    MatToolbarModule,
     MatButtonModule,
-    MatSidenavModule,
     MatIconModule,
-    MatListModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,57 +1,35 @@
 
-
-.contenedor-up {
-  width: 100%;
-  height: 15%;
-  //margin: 20px 20px 20px 20px;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);   // 12 columnas
-  //grid-template-rows: repeat(2, 1fr);
-}
-
-.contenedor-up .contenido-logo {
-  //grid-column-start: 1;
-  //grid-column-end: 12;
-  grid-column: 1/3;
-  grid-row: 1/2;
-  //text-align: center;
-  margin-left: auto;
-  margin-top: auto;
-  margin-bottom: auto;
-  margin-right: auto;
-}
-
-.contenedor-up .contenido-nav-up {
-  //background-color: greenyellow;
-  //grid-column-start: 3;
-  //grid-column-end: 10;
-  grid-column: 3/-1;   // 3/12
-  grid-row: 1/2;
-  text-align: center;
-}
-
-
-
-.contenedor-middle {
+.contenedor {
   width: 100%;
   height: 100%;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
 }
-.contenedor-middle .contenido-nav-up-left {
+
+
+.contenedor .contenido-nav-izq {
   //background-color: cornflowerblue;
   grid-column: 1/3;
-  text-align: center;
+
 }
 
-.contenedor-middle .contenido-components {
+.contenedor .contenido-components-der {
   //padding-top, padding-right, padding-bottom, padding-left
   padding: 1% 2% 1% 2%;
   background: #F7F7F9;
   grid-column: 3/-1;
   text-align: center;
+
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
+.contenedor .contenido-nav-izq .contenido-logo {
+  height: 15%;
+  grid-row: 1/2;
+  text-align: center;
+  margin-top: 10%;
+  margin-right: 2vh;
+}
 
 .logo-padding {
   padding: 1vh;

@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Expert } from 'src/app/models/expert/expert';
+import { Expert } from 'src/app/models/expert/expert.model';
 import { ExpertService } from 'src/app/services/expert/expert.service';
 import { Subscription } from 'rxjs';
 
@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './experts-page.component.html',
   styleUrls: ['./experts-page.component.scss']
 })
-export class ExpertsPageComponent implements OnInit {
+export class ExpertsPageComponent implements OnInit, OnDestroy {
 
   expertsList:Expert[] = [];
   expertSubscription: Subscription = new Subscription();
@@ -17,7 +17,7 @@ export class ExpertsPageComponent implements OnInit {
   constructor(private expertService: ExpertService) { }
 
   ngOnInit(): void {
-    this.expertService.getAllExperts().subscribe((response) => {
+    this.expertSubscription = this.expertService.getAllExperts().subscribe((response) => {
       this.expertsList = response;
     });
   }

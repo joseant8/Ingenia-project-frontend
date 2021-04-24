@@ -1,0 +1,29 @@
+
+.contenido-links {
+  //background:palegreen;
+  height: 15%;
+  margin-top: 10%;
+  margin-right: 3vh;
+  margin-left: 2vh;
+  font-size: 150%;
+}
+
+
+.contenido-links > a:hover {
+  text-decoration: none;   // para que no me ponga underline al poner el ratón encima
+}
+
+
+.contenido-usuario {
+  //background:powderblue;
+  text-align: center;
+  margin-top: 40vh;
+  margin-right: 2vh;
+}
+
+// Clase de 'material'
+.mat-expansion-panel {
+  margin-left: 1vh;
+  margin-right: 1vh;
+  box-shadow:none;
+}

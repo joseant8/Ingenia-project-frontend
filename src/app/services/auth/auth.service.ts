@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
-import { Observable, of } from 'rxjs';
+import { Observable, of, Subject } from 'rxjs';
 import { User } from 'src/app/models/user/user.model';
 
 @Injectable({
@@ -26,5 +26,13 @@ export class AuthService {
     localStorage.removeItem('Token');
     localStorage.removeItem('emailCurrentUser');
     this.router.navigate(['/login']);
+  }
+
+  get userIsLoggedIn(): boolean{
+    if(localStorage.getItem('Token')){
+      return true;
+    }else{
+      return false;
+    }
   }
 }

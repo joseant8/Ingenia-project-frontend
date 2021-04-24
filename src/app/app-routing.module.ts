@@ -5,6 +5,7 @@ import { ExpertDetailPageComponent } from './pages/expert-detail-page/expert-det
 import { ExpertsPageComponent } from './pages/experts-page/experts-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
+import { TagCreatePageComponent } from './pages/tag-create-page/tag-create-page.component';
 import { TagsPageComponent } from './pages/tags-page/tags-page.component';
 
 const routes: Routes = [
@@ -30,6 +31,11 @@ const routes: Routes = [
   {
     path: 'etiquetas',
     component: TagsPageComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'etiquetas/crear',
+    component: TagCreatePageComponent,
     canActivate: [AuthGuard]
   },
   {

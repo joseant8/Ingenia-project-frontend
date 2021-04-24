@@ -1,8 +1,34 @@
 
-<a [routerLink]="['/expertos']"> Expertos </a>
-<br>
-<a [routerLink]="['/etiquetas']"> Etiquetas </a>
-<br>
-<h4>{{email}}</h4>
-<br>
-<button mat-raised-button (click)='logout()'>Logout</button>
+<div class="contenido-links">
+  <a [routerLink]="['/expertos']">
+    <mat-icon>group</mat-icon>
+    Expertos </a>
+  <br><br>
+  <a [routerLink]="['/etiquetas']">
+    <mat-icon>sell</mat-icon>
+    Etiquetas </a>
+</div>
+
+<!-- Comprueba si está logeado para mostrar u ocultar el elemento-->
+<div *ngIf="isLoggedIn">
+  <div class="contenido-usuario">
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <h5><mat-icon>person</mat-icon>{{email}}</h5>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <button mat-raised-button (click)='logout()'>Logout</button>
+    </mat-expansion-panel>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+

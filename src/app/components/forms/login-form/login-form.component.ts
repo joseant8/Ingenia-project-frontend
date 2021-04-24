@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.scss']
 })
-export class LoginFormComponent implements OnInit {
+export class LoginFormComponent implements OnInit, OnDestroy {
 
   loginForm: FormGroup = new FormGroup({});
   authSubscription: Subscription = new Subscription();
