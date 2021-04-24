@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -35,10 +35,12 @@ export class LoginFormComponent implements OnInit {
 
           // Guardamos el token en LocalStorage de nuestro navegador en la variable 'Token'
           localStorage.setItem('Token', response.token);
+          // Guardamos también el email del usuario en localStorage en la variable "email"
+          localStorage.setItem('emailCurrentUser', user.email);
 
           // Navegamos a "/home"
           // El AuthGuard será ejecutado
-          this.router.navigate(['/home'], { state: {userEmail: user.email} });
+          this.router.navigate(['/expertos']);
         }else{
           alert('Error: No se ha recibido el token');
           localStorage.removeItem('Token');
@@ -47,6 +49,11 @@ export class LoginFormComponent implements OnInit {
     } else {
       alert('EL email y/o contraseña no son válidos')
     }
+  }
+
+
+  ngOnDestroy(): void {
+    this.authSubscription.unsubscribe();
   }
 
 }

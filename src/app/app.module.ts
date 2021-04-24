@@ -7,6 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import {MatTableModule} from '@angular/material/table';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,7 +15,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { LoginFormComponent } from './components/forms/login-form/login-form.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
-import { HomePageComponent } from './pages/home-page/home-page.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -28,6 +28,7 @@ import { ExpertsPageComponent } from './pages/experts-page/experts-page.componen
 import { TagsPageComponent } from './pages/tags-page/tags-page.component';
 import { NavUpComponent } from './components/navs/nav-up/nav-up.component';
 import { NavLeftComponent } from './components/navs/nav-left/nav-left.component';
+import { ExpertDetailPageComponent } from './pages/expert-detail-page/expert-detail-page.component';
 
 @NgModule({
   declarations: [
@@ -35,13 +36,13 @@ import { NavLeftComponent } from './components/navs/nav-left/nav-left.component'
     LoginPageComponent,
     LoginFormComponent,
     NotFoundPageComponent,
-    HomePageComponent,
     ExpertComponent,
     TagComponent,
     ExpertsPageComponent,
     TagsPageComponent,
     NavUpComponent,
     NavLeftComponent,
+    ExpertDetailPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,6 +52,7 @@ import { NavLeftComponent } from './components/navs/nav-left/nav-left.component'
     ReactiveFormsModule,
     MatCardModule,
     MatFormFieldModule,
+    MatTableModule,
     MatInputModule,
     MatToolbarModule,
     MatButtonModule,

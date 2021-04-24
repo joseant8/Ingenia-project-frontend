@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard';
+import { ExpertDetailPageComponent } from './pages/expert-detail-page/expert-detail-page.component';
 import { ExpertsPageComponent } from './pages/experts-page/experts-page.component';
-import { HomePageComponent } from './pages/home-page/home-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { TagsPageComponent } from './pages/tags-page/tags-page.component';
@@ -18,13 +18,13 @@ const routes: Routes = [
     component: LoginPageComponent
   },
   {
-    path: 'home',
-    component: HomePageComponent,
+    path: 'expertos',
+    component: ExpertsPageComponent,
     canActivate: [AuthGuard]
   },
   {
-    path: 'expertos',
-    component: ExpertsPageComponent,
+    path: 'expertos/:id',
+    component: ExpertDetailPageComponent,
     canActivate: [AuthGuard]
   },
   {

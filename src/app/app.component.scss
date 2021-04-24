@@ -34,7 +34,7 @@
 
 .contenedor-middle {
   width: 100%;
-  height: 90%;
+  height: 100%;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
 }
@@ -45,6 +45,9 @@
 }
 
 .contenedor-middle .contenido-components {
+  //padding-top, padding-right, padding-bottom, padding-left
+  padding: 1% 2% 1% 2%;
+  background: #F7F7F9;
   grid-column: 3/-1;
   text-align: center;
 }
