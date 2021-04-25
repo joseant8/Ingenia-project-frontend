@@ -15,6 +15,8 @@ export class LoginFormComponent implements OnInit, OnDestroy {
   loginForm: FormGroup = new FormGroup({});
   authSubscription: Subscription = new Subscription();
 
+  hide = true;
+
   constructor(private router: Router, private authService: AuthService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {

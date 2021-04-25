@@ -1,22 +1,31 @@
-<p>Formulario login</p>
+<h2 class="color-verde-texto">Bienvenido/a</h2>
+<h4>Inicia sesión para continuar</h4>
+<br>
 
 <mat-card>
   <form [formGroup]="loginForm" (submit)="login()">
 
-    <mat-form-field>
+    <mat-form-field appearance="outline">
       <input matInput formControlName="email" placeholder="Email"/>
     </mat-form-field>
     <br>
-    <mat-form-field>
-      <input matInput formControlName="password" placeholder="Password"/>
+    <mat-form-field appearance="outline">
+      <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" placeholder="Contraseña">
+      <!--
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+      -->
     </mat-form-field>
 
     <mat-card-actions>
+      <span>
+        ¿Nuevo usuario?
+        <a color="warning" [routerLink]="['/register']"> <span class="color-verde-texto">Crear cuenta</span> </a>
+      </span>
       <button mat-raised-button color="primary" type="submit">
-        Login
+        Iniciar sesión
       </button>
-
-      <button mat-raised-button color="warning" [routerLink]="['/register']"> Crear cuenta </button>
     </mat-card-actions>
 
   </form>
