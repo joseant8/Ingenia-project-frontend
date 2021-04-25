@@ -1,0 +1,21 @@
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Nueva Etiqueta</mat-card-title>
+  </mat-card-header>
+  <form [formGroup]="tagForm" (submit)="createTag()">
+
+    <mat-form-field appearance="outline">
+      <mat-label>Nombre de la etiqueta</mat-label>
+      <input matInput formControlName="nombre" placeholder="Nombre etiqueta"/>
+    </mat-form-field>
+
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">
+        Crear Etiqueta
+      </button>
+    </mat-card-actions>
+
+  </form>
+</mat-card>
+
