@@ -26,7 +26,8 @@ export class TagFormComponent implements OnInit, OnDestroy {
   createTag(): void {
     if(this.tagForm.valid && this.tagForm.value.nombre){
       let tag = {
-        nombre: this.tagForm.value.nombre
+        nombreTag: this.tagForm.value.nombre,
+        usernameCreador: localStorage.getItem("userEmail")
       }
       this.tagSubscription = this.tagService.createTag(tag).subscribe((response) => {
         this.router.navigate(['/etiquetas']);

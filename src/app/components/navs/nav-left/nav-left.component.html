@@ -12,11 +12,12 @@
 <!-- Comprueba si está logeado para mostrar u ocultar el elemento-->
 <div *ngIf="isLoggedIn">
   <div class="contenido-usuario">
+    <h5>{{userName}}</h5>
     <mat-expansion-panel (opened)="panelOpenState = true"
                          (closed)="panelOpenState = false">
       <mat-expansion-panel-header>
         <mat-panel-title>
-          <h5><mat-icon>person</mat-icon>{{email}}</h5>
+          <h6><mat-icon>person</mat-icon>{{userEmail}}</h6>
         </mat-panel-title>
       </mat-expansion-panel-header>
       <button mat-raised-button (click)='logout()'>Logout</button>

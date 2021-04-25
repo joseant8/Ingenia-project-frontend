@@ -35,11 +35,12 @@ export class LoginFormComponent implements OnInit, OnDestroy {
 
           // Guardamos el token en LocalStorage de nuestro navegador en la variable 'Token'
           localStorage.setItem('Token', response.token);
-          // Guardamos también el email del usuario en localStorage en la variable "email"
-          localStorage.setItem('emailCurrentUser', user.email);
+          // Guardamos también el email y nombre del usuario en localStorage
+          localStorage.setItem('userEmail', response.user.username);
+          localStorage.setItem('userName', response.user.nombreCompleto);
+          //localStorage.setItem('currentUser', JSON.stringify(response.user));
 
-          // Navegamos a "/home"
-          // El AuthGuard será ejecutado
+          // Navegamos a "/expertos"
           this.router.navigate(['/expertos']);
         }else{
           alert('Error: No se ha recibido el token');

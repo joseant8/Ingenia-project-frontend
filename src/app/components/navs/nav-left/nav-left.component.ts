@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EmailValidator } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
@@ -8,7 +9,8 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 })
 export class NavLeftComponent implements OnInit {
 
-  email:any = '';
+  userEmail:any = '';
+  userName:any = '';
   panelOpenState:boolean = false;
   userIsLoggedIn = false;
 
@@ -23,7 +25,8 @@ export class NavLeftComponent implements OnInit {
   }
 
   get isLoggedIn(): boolean{
-    this.email = localStorage.getItem('emailCurrentUser');
+    this.userEmail = localStorage.getItem('userEmail');
+    this.userName = localStorage.getItem('userName');
     return this.authService.userIsLoggedIn
   }
 

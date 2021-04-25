@@ -23,8 +23,8 @@ export class AuthService {
   }
 
   logout(){
-    localStorage.removeItem('Token');
-    localStorage.removeItem('emailCurrentUser');
+    //localStorage.removeItem('Token');
+    localStorage.clear(); // Elimina todo lo que esté en localStorage
     this.router.navigate(['/login']);
   }
 
