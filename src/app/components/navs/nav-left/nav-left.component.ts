@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { EmailValidator } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
@@ -12,7 +11,6 @@ export class NavLeftComponent implements OnInit {
   userEmail:any = '';
   userName:any = '';
   panelOpenState:boolean = false;
-  userIsLoggedIn = false;
 
   constructor(private authService: AuthService) { }
 

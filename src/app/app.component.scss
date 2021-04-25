@@ -34,3 +34,40 @@
 .logo-padding {
   padding: 1vh;
 }
+
+
+
+// Lo siguiente es para login y registro
+
+.contenedor .contenido-izq {
+  background: radial-gradient(109.66% 112.15% at -1.89% -1.44%, #FFE81D 0%, #00D1C5 100%);
+  grid-column: 1/5;
+
+}
+
+.contenedor .contenido-der {
+  //padding-top, padding-right, padding-bottom, padding-left
+  padding: 18% 30% 30% 30%;
+  background: #F7F7F9;
+  grid-column: 5/-1;
+  text-align: center;
+}
+
+.contenedor .contenido-izq .contenido-logo {
+  height: 30%;
+  grid-row: 1/2;
+  margin-top: 10%;
+  margin-right: 2vh;
+  margin-left: 3vh;
+}
+
+.contenedor .contenido-izq .contenido-titulo {
+  height: 50%;
+  grid-row: 1/2;
+  margin-right: 2vh;
+}
+
+.contenido-titulo > h1 {
+  text-align: center;
+  color: white;
+}

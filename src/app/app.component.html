@@ -1,19 +1,40 @@
-
-<div class="contenedor">
-  <!-- Parte izquierda -->
-  <div class="contenido-nav-izq">
-    <div class="contenido-logo">
-      <img src="assets/images/Union.svg" class="logo-padding" alt="logo">
-      <img src="assets/images/Experts.svg" alt="experts">
+<!-- Esta parte si el usuario no está logeado -->
+<span *ngIf="!isLoggedIn; else elseBlock">
+  <div class="contenedor">
+    <div class="contenido-izq">
+      <div class="contenido-logo">
+        <img src="assets/images/Union-white.svg" class="logo-padding" alt="logo">
+        <img src="assets/images/Experts-white.svg" alt="experts">
+      </div>
+      <div class="contenido-titulo">
+        <h1>La plataforma de gestión de Expertos</h1>
+      </div>
     </div>
-    <div>
-      <app-nav-left></app-nav-left>
+    <div class="contenido-der">
+      <router-outlet></router-outlet>
     </div>
   </div>
+</span>
 
-  <!-- Parte derecha. Aquí irán el resto de componentes -->
-  <div class="contenido-components-der">
-    <router-outlet></router-outlet>
+<!-- Esta parte solo si el usuario está logeado -->
+<ng-template #elseBlock>
+  <div class="contenedor">
+    <!-- Parte izquierda -->
+
+      <div class="contenido-nav-izq">
+        <div class="contenido-logo">
+          <img src="assets/images/Union.svg" class="logo-padding" alt="logo">
+          <img src="assets/images/Experts.svg" alt="experts">
+        </div>
+        <div>
+          <app-nav-left></app-nav-left>
+        </div>
+      </div>
+
+    <!-- Parte derecha. Aquí irán el resto de componentes -->
+    <div class="contenido-components-der">
+      <router-outlet></router-outlet>
+    </div>
   </div>
-</div>
+</ng-template>
 
