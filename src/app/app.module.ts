@@ -31,6 +31,7 @@ import { NavUpComponent } from './components/navs/nav-up/nav-up.component';
 import { NavLeftComponent } from './components/navs/nav-left/nav-left.component';
 import { ExpertDetailPageComponent } from './pages/expert-detail-page/expert-detail-page.component';
 import { TagCreatePageComponent } from './pages/tag-create-page/tag-create-page.component';
+import { TagFormComponent } from './components/forms/tag-form/tag-form.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { TagCreatePageComponent } from './pages/tag-create-page/tag-create-page.
     NavLeftComponent,
     ExpertDetailPageComponent,
     TagCreatePageComponent,
+    TagFormComponent,
   ],
   imports: [
     BrowserModule,
