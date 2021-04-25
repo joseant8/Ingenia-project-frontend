@@ -12,7 +12,7 @@ export class ExpertsPageComponent implements OnInit, OnDestroy {
 
   expertsList:Expert[] = [];
   expertSubscription: Subscription = new Subscription();
-  displayedColumns: string[] = ['id', 'nombre', 'created_at'];
+  displayedColumns: string[] = ['nombre', 'estado', 'etiquetas', 'valoracion'];
 
   constructor(private expertService: ExpertService) { }
 

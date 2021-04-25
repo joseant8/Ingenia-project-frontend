@@ -21,8 +21,8 @@ export class TagComponent implements OnInit {
   deleteTag(id:number, nombre:string){
     if(window.confirm('¿Estás seguro que deseas eliminar \'' + nombre + '\' de la lista de etiquetas?\n¡La etiqueta desaparecerá de la ficha de expertos también!')){
       this.tagService.deleteTag(id).subscribe((response) => {
-        alert('Etiqueta \'' + nombre + '\' eliminada correctamente');
         window.location.reload();  // recargar la página
+        alert('Etiqueta \'' + nombre + '\' eliminada correctamente');
       });
     }
   }
