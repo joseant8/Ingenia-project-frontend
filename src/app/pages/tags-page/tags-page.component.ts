@@ -12,7 +12,6 @@ export class TagsPageComponent implements OnInit, OnDestroy {
 
   tagsList:Tag[] = [];
   tagSubscription: Subscription = new Subscription();
-  //displayedColumns: string[] = ['id', 'nombre', 'created_at'];
 
   constructor(private tagService: TagService) { }
 
@@ -20,15 +19,6 @@ export class TagsPageComponent implements OnInit, OnDestroy {
     this.tagSubscription = this.tagService.getAllTags().subscribe((response) => {
       this.tagsList = response;
     });
-  }
-
-  deleteTag(id:number, nombre:string){
-    if(window.confirm('¿Estás seguro que deseas eliminar \'' + nombre + '\' de la lista de etiquetas?\n¡La etiqueta desaparecerá de la ficha de expertos también!')){
-      this.tagService.deleteTag(id).subscribe((response) => {
-        alert('Etiqueta \'' + nombre + '\' eliminada correctamente');
-        window.location.reload();  // recargar la página
-      });
-    }
   }
 
   ngOnDestroy(): void {

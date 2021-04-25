@@ -5,10 +5,10 @@
   <h4>
     Listado
   </h4>
+  <div>ETIQUETA, CREADOR, FECHA CREACIÓN</div>
   <div *ngFor="let t of tagsList">
-    Etiqueta id: {{t.id}}, {{t.nombre}}, {{t.created_at}}
-    <!--<a routerLink='/etiquetas/{{t.id}}' routerLinkActive="router-link-active" [state]="t"> Ver detalle </a>-->
-    <button (click)="deleteTag(t.id, t.nombre)">Delete</button>
+    <app-tag [t]="t"></app-tag>
+    <hr>
   </div>
 </div>
 
