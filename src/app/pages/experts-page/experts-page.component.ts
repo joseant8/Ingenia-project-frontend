@@ -22,6 +22,28 @@ export class ExpertsPageComponent implements OnInit, OnDestroy {
     });
   }
 
+  getColorEstado(estado: string) {
+    if(estado === 'Validado'){
+      return '#4ADEBB';
+    }else{
+      return '#F0CE76';
+    }
+  }
+
+  getColorValoracion(valoracion: number) {
+    if(valoracion < 20){
+      return '#D66464';
+    }else if(valoracion < 30){
+      return '#DEA876';
+    }else if(valoracion < 60){
+      return '#F0CE76';
+    }else if(valoracion < 80){
+      return '#B1F0A1';
+    }else{  // 80-100
+      return '#4ADEBB';
+    }
+  }
+
   ngOnDestroy(): void {
     this.expertSubscription.unsubscribe();
   }
