@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { TagService } from 'src/app/services/tag/tag.service';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-tag-create-page',
@@ -9,15 +7,10 @@ import { Subscription } from 'rxjs';
 })
 export class TagCreatePageComponent implements OnInit {
 
-  constructor(private tagService: TagService) { }
-
-  ngOnInit(): void {
+  constructor() {
   }
 
-  createTag(){
-    this.tagService.createTag().subscribe((response) => {
-      alert('Etiqueta creada');
-    });
+  ngOnInit(): void {
   }
 
 }

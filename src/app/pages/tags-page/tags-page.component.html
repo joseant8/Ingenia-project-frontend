@@ -6,7 +6,7 @@
     Listado
   </h4>
   <div *ngFor="let t of tagsList">
-    Etiqueta id: {{t.id}}, {{t.nombre}}, {{t.created_at}}, {{t.creador.nombreCompleto}}
+    Etiqueta id: {{t.id}}, {{t.nombre}}, {{t.created_at}}
     <!--<a routerLink='/etiquetas/{{t.id}}' routerLinkActive="router-link-active" [state]="t"> Ver detalle </a>-->
     <button (click)="deleteTag(t.id, t.nombre)">Delete</button>
   </div>

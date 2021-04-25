@@ -25,12 +25,9 @@ export class TagService {
   }
 
   //createTag(tag:Tag): Observable<any> {
-  createTag(): Observable<any> {
+  createTag(tag:{}): Observable<any> {
     let token = 'Bearer ' + localStorage.getItem('Token')
-    let body = {
-      nombre:"Ruby"
-    }
     let headers = {'Authorization':token}
-    return this.http.post(this.TAGS_URL, body, {headers})
+    return this.http.post(this.TAGS_URL, tag, {headers})
   }
 }
