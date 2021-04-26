@@ -27,7 +27,6 @@ import { ExpertComponent } from './components/expert/expert.component';
 import { TagComponent } from './components/tag/tag.component';
 import { ExpertsPageComponent } from './pages/experts-page/experts-page.component';
 import { TagsPageComponent } from './pages/tags-page/tags-page.component';
-import { NavUpComponent } from './components/navs/nav-up/nav-up.component';
 import { NavLeftComponent } from './components/navs/nav-left/nav-left.component';
 import { ExpertDetailPageComponent } from './pages/expert-detail-page/expert-detail-page.component';
 import { TagCreatePageComponent } from './pages/tag-create-page/tag-create-page.component';
@@ -45,7 +44,6 @@ import { RegisterPageComponent } from './pages/register-page/register-page.compo
     TagComponent,
     ExpertsPageComponent,
     TagsPageComponent,
-    NavUpComponent,
     NavLeftComponent,
     ExpertDetailPageComponent,
     TagCreatePageComponent,
