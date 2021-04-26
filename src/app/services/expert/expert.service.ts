@@ -92,4 +92,29 @@ export class ExpertService {
       })
     );
   }
+
+
+
+  // Crear experto
+  createExpert(body:any): Observable<any>{
+    let token = 'Bearer ' + localStorage.getItem('Token')
+    let headers = {'Authorization':token}
+    return this.http.post(this.EXPERTS_URL, body, {headers}).pipe(
+      catchError((error: HttpErrorResponse) => {
+        let errorMessage = 'Error';
+        if (error.error instanceof ErrorEvent) {
+          // client-side error
+          errorMessage = `Error: ${error.error.message}`;
+        } else {
+          // server-side error
+          if(error.status === 504){  // 504: Gateway Timeout
+            errorMessage = 'No ha sido posible conectar con el servidor de los datos. Inténtelo más tarde.';
+          }
+
+        }
+        window.alert(errorMessage);
+        return throwError(errorMessage);
+      })
+    );
+  }
 }
