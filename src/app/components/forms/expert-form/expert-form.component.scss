@@ -19,11 +19,67 @@
   grid-template-columns: repeat(4, 1fr);
 }
 
-.contenedor-experto .imagen-nombre {
-  grid-column: 1/3;
+.contenedor-experto .imagen-nombre-nif {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  //grid-column: 1/3;
 }
+
+.contenedor-experto .imagen-nombre-nif .imagen{
+  grid-column: 1/2;
+}
+
+.contenedor-experto .imagen-nombre-nif .nombre-nif{
+  padding-top: 2vh;
+  grid-column: 2/3;
+}
+
 
 .contenedor-experto .fechas {
   grid-column: 3/-1;
+  text-align: right;
 }
+
+
+.padding-fila2 {
+  padding-top: 6vh;
+}
+
+.padding-fila3 {
+  padding-bottom: 6vh;
+}
+
+
+
+.contenedor-experto .datos-contacto-experto {
+  grid-column: 1/3;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+
+.contenedor-experto .etiquetas {
+  grid-column: 3/-1;
+  width: 100%;
+  display: grid;
+}
+
+
+.button-tag {
+  background-color: #c7c7c7;
+  border: 1px;
+  color: rgb(70, 68, 68);
+  padding: 1vh;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 3px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+
+
 

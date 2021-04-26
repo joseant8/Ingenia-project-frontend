@@ -105,4 +105,12 @@ export class ExpertFormComponent implements OnInit {
     this.edit_email_show = !this.edit_email_show
   }
 
+  getColorEstado(estado: string) {
+    if(estado === 'Validado'){
+      return '#4ADEBB';
+    }else{
+      return '#F0CE76';
+    }
+  }
+
 }
