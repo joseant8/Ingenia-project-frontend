@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard';
+import { ExpertCreatePageComponent } from './pages/expert-create-page/expert-create-page.component';
 import { ExpertDetailPageComponent } from './pages/expert-detail-page/expert-detail-page.component';
 import { ExpertsPageComponent } from './pages/experts-page/experts-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
@@ -26,6 +27,11 @@ const routes: Routes = [
   {
     path: 'expertos',
     component: ExpertsPageComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'expertos/crear',
+    component: ExpertCreatePageComponent,
     canActivate: [AuthGuard]
   },
   {

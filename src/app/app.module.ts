@@ -33,6 +33,7 @@ import { TagCreatePageComponent } from './pages/tag-create-page/tag-create-page.
 import { TagFormComponent } from './components/forms/tag-form/tag-form.component';
 import { RegisterFormComponent } from './components/forms/register-form/register-form.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
+import { ExpertCreatePageComponent } from './pages/expert-create-page/expert-create-page.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { RegisterPageComponent } from './pages/register-page/register-page.compo
     TagFormComponent,
     RegisterFormComponent,
     RegisterPageComponent,
+    ExpertCreatePageComponent,
   ],
   imports: [
     BrowserModule,
