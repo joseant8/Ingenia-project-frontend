@@ -1,0 +1,45 @@
+
+<mat-card>
+  <form [formGroup]="createForm" (submit)="createExpert()">
+
+    <h2 style="text-align: left;">Nuevo Experto</h2>
+    <br>
+
+    NOMBRE*<br>
+    <mat-form-field appearance="outline">
+      <input matInput formControlName="nombre" placeholder="Nombre">
+    </mat-form-field>
+    <br>
+
+    NIF<br>
+    <mat-form-field appearance="outline">
+      <input matInput formControlName="nif" placeholder="Nif"/>
+    </mat-form-field>
+    <br>
+
+    EMAIL<br>
+    <mat-form-field appearance="outline">
+      <input matInput formControlName="contacto_email" placeholder="Email"/>
+    </mat-form-field>
+    <br>
+
+    TELÉFONO*<br>
+    <mat-form-field appearance="outline">
+      <input matInput formControlName="contacto_telefono" placeholder="Teléfono"/>
+    </mat-form-field>
+    <br>
+
+    LINKEDIN<br>
+    <mat-form-field appearance="outline">
+      <input matInput formControlName="contacto_linkedin" placeholder="Teléfono"/>
+    </mat-form-field>
+    <br>
+
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">
+        Crear experto
+      </button>
+    </mat-card-actions>
+
+  </form>
+</mat-card>
