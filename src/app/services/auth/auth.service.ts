@@ -25,7 +25,7 @@ export class AuthService {
     // http siempre devuelve observables
     return this.http.post(this.LOGIN_URL, body).pipe(
       catchError((error: HttpErrorResponse) => {
-        let errorMessage = '';
+        let errorMessage = 'Error';
         if (error.error instanceof ErrorEvent) {
           // client-side error
           errorMessage = `Error: ${error.error.message}`;
