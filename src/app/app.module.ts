@@ -32,6 +32,8 @@ import { NavLeftComponent } from './components/navs/nav-left/nav-left.component'
 import { ExpertDetailPageComponent } from './pages/expert-detail-page/expert-detail-page.component';
 import { TagCreatePageComponent } from './pages/tag-create-page/tag-create-page.component';
 import { TagFormComponent } from './components/forms/tag-form/tag-form.component';
+import { RegisterFormComponent } from './components/forms/register-form/register-form.component';
+import { RegisterPageComponent } from './pages/register-page/register-page.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,8 @@ import { TagFormComponent } from './components/forms/tag-form/tag-form.component
     ExpertDetailPageComponent,
     TagCreatePageComponent,
     TagFormComponent,
+    RegisterFormComponent,
+    RegisterPageComponent,
   ],
   imports: [
     BrowserModule,

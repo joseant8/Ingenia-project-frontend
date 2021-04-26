@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { User } from 'src/app/models/user/user.model';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import { Register } from 'src/app/models/register/register.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,7 @@ import { throwError } from 'rxjs';
 export class AuthService {
 
   private readonly LOGIN_URL:string = '/API/auth/login';
+  private readonly REGISTER_URL:string = '/API/auth/signup';
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -44,6 +46,28 @@ export class AuthService {
     //localStorage.removeItem('Token');
     localStorage.clear(); // Elimina todo lo que esté en localStorage
     this.router.navigate(['/login']);
+  }
+
+  register(register: Register): Observable<any>{
+    const body = register;
+    // http siempre devuelve observables
+    return this.http.post(this.REGISTER_URL, body).pipe(
+      catchError((error: HttpErrorResponse) => {
+        let errorMessage = '';
+        if (error.error instanceof ErrorEvent) {
+          // client-side error
+          errorMessage = `Error: ${error.error.message}`;
+        } else {
+          // server-side error
+          if(error.status === 400){  // 401: BadRequest
+            errorMessage = 'No se ha podido registrar. El email introducido ya está registrado.';
+          }
+
+        }
+        window.alert(errorMessage);
+        return throwError(errorMessage);
+      })
+    );
   }
 
   get userIsLoggedIn(): boolean{

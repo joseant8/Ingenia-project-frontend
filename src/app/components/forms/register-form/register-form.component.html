@@ -1,0 +1,30 @@
+<h2 class="color-verde-texto">Bienvenido/a</h2>
+<h4>Regístrese para poder usar la app de Expertos</h4>
+<br>
+
+<mat-card>
+  <form [formGroup]="registerForm" (submit)="register()">
+
+    <mat-form-field appearance="outline">
+      <input matInput formControlName="nombreCompleto" placeholder="Nombre Completo"/>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="outline">
+      <input matInput formControlName="email" placeholder="Email"/>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="outline">
+      <input matInput formControlName="password" placeholder="Contraseña">
+    </mat-form-field>
+
+    <mat-card-actions>
+      <span>
+        <a color="warning" [routerLink]="['/login']"> <span class="color-verde-texto">Volver a Login</span> </a>
+      </span>
+      <button mat-raised-button color="primary" type="submit">
+        Registrar
+      </button>
+    </mat-card-actions>
+
+  </form>
+</mat-card>

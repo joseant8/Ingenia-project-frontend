@@ -5,6 +5,7 @@ import { ExpertDetailPageComponent } from './pages/expert-detail-page/expert-det
 import { ExpertsPageComponent } from './pages/experts-page/experts-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
+import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { TagCreatePageComponent } from './pages/tag-create-page/tag-create-page.component';
 import { TagsPageComponent } from './pages/tags-page/tags-page.component';
 
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'login', // http:localhost:4200/login
     component: LoginPageComponent
+  },
+  {
+    path: 'registro',
+    component: RegisterPageComponent
   },
   {
     path: 'expertos',
