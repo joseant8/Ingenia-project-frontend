@@ -14,6 +14,8 @@ export class AuthService {
 
   private readonly LOGIN_URL:string = '/API/auth/login';
   private readonly REGISTER_URL:string = '/API/auth/signup';
+  //private readonly LOGIN_URL:string = 'https://spring-app-expertos-backend.herokuapp.com/API/auth/login';
+  //private readonly REGISTER_URL:string = 'https://spring-app-expertos-backend.herokuapp.com/API/auth/signup';
 
   constructor(private http: HttpClient, private router: Router) { }
 

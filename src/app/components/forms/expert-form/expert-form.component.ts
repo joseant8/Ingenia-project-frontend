@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -10,7 +10,7 @@ import { ExpertService } from 'src/app/services/expert/expert.service';
   templateUrl: './expert-form.component.html',
   styleUrls: ['./expert-form.component.scss']
 })
-export class ExpertFormComponent implements OnInit {
+export class ExpertFormComponent implements OnInit, OnDestroy {
 
   @Input() experto: Expert = new Expert(0, '', new Date(), new Date(), '', '', '', 0, '', '', '', '', '', []);
 
@@ -23,6 +23,7 @@ export class ExpertFormComponent implements OnInit {
   edit_email_show: boolean = false;
 
   constructor(private router: Router, private expertService: ExpertService, private formBuilder: FormBuilder) { }
+
 
   ngOnInit(): void {
     this.editForm = this.formBuilder.group({
@@ -111,6 +112,10 @@ export class ExpertFormComponent implements OnInit {
     }else{
       return '#F0CE76';
     }
+  }
+
+  ngOnDestroy(): void {
+    this.expertSubscription.unsubscribe();
   }
 
 }

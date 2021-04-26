@@ -36,6 +36,7 @@ import { RegisterFormComponent } from './components/forms/register-form/register
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { ExpertCreatePageComponent } from './pages/expert-create-page/expert-create-page.component';
 import { ExpertFormComponent } from './components/forms/expert-form/expert-form.component';
+import { NewExpertFormComponent } from './components/forms/new-expert-form/new-expert-form.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { ExpertFormComponent } from './components/forms/expert-form/expert-form.
     RegisterPageComponent,
     ExpertCreatePageComponent,
     ExpertFormComponent,
+    NewExpertFormComponent,
   ],
   imports: [
     BrowserModule,
