@@ -1,4 +1,13 @@
-<p>Lista de expertos</p>
+<div class="navegacion-up">
+  <h3>
+    Lista de Expertos
+  </h3>
+  <span class="derecha">
+    <button routerLink='/expertos/crear' routerLinkActive="router-link-active" mat-raised-button color="primary" type="submit">
+      <mat-icon>add</mat-icon> Nuevo experto
+    </button>
+  </span>
+</div>
 
 <!--
 <div>
@@ -11,47 +20,48 @@
   </div>
 </div>
 -->
+<div class="padding-contenedor-principal">
+  <div class="tabla-centrada">
+    <table mat-table [dataSource]="expertsList" class="mat-elevation-z8">
 
-<div class="tabla-centrada">
-  <table mat-table [dataSource]="expertsList" class="mat-elevation-z8">
-
-    <!-- Nombre del experto -->
-    <ng-container matColumnDef="nombre">
-      <th mat-header-cell *matHeaderCellDef> NOMBRE EXPERTO </th>
-      <td mat-cell *matCellDef="let element">
-        <a routerLink='/expertos/{{element.id}}' routerLinkActive="router-link-active" [state]="element"> {{element.nombre}} </a>
-      </td>
-    </ng-container>
-
-    <!-- Estado -->
-    <ng-container matColumnDef="estado">
-      <th mat-header-cell *matHeaderCellDef> ESTADO </th>
-      <td mat-cell *matCellDef="let element" [style.color] = "getColorEstado(element.estado)">
-        <mat-icon>circle</mat-icon>
-        {{element.estado}}
-      </td>
-    </ng-container>
-
-    <!-- Etiquetas -->
-    <ng-container matColumnDef="etiquetas">
-      <th mat-header-cell *matHeaderCellDef> ETIQUETAS </th>
-      <td mat-cell *matCellDef="let element">
-        <span *ngFor="let etiqueta of element.etiquetas">
-          <button class="button-tag">{{etiqueta.nombre}}</button>&nbsp;
-        </span>
-      </td>
-    </ng-container>
-
-    <!-- Valoración -->
-    <ng-container matColumnDef="valoracion">
-      <th mat-header-cell *matHeaderCellDef> VALORACIÓN </th>
-      <td mat-cell *matCellDef="let element">
-         <span class="button-val" [style.background-color] = "getColorValoracion(element.puntuacion)">{{element.puntuacion}}</span>
+      <!-- Nombre del experto -->
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef> NOMBRE EXPERTO </th>
+        <td mat-cell *matCellDef="let element">
+          <a routerLink='/expertos/{{element.id}}' routerLinkActive="router-link-active" [state]="element"> {{element.nombre}} </a>
         </td>
-    </ng-container>
+      </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-header-row *ngFor="let e of expertsList"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
+      <!-- Estado -->
+      <ng-container matColumnDef="estado">
+        <th mat-header-cell *matHeaderCellDef> ESTADO </th>
+        <td mat-cell *matCellDef="let element" [style.color] = "getColorEstado(element.estado)">
+          <mat-icon>circle</mat-icon>
+          {{element.estado}}
+        </td>
+      </ng-container>
+
+      <!-- Etiquetas -->
+      <ng-container matColumnDef="etiquetas">
+        <th mat-header-cell *matHeaderCellDef> ETIQUETAS </th>
+        <td mat-cell *matCellDef="let element">
+          <span *ngFor="let etiqueta of element.etiquetas">
+            <button class="button-tag">{{etiqueta.nombre}}</button>&nbsp;
+          </span>
+        </td>
+      </ng-container>
+
+      <!-- Valoración -->
+      <ng-container matColumnDef="valoracion">
+        <th mat-header-cell *matHeaderCellDef> VALORACIÓN </th>
+        <td mat-cell *matCellDef="let element">
+          <span class="button-val" [style.background-color] = "getColorValoracion(element.puntuacion)">{{element.puntuacion}}</span>
+          </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-header-row *ngFor="let e of expertsList"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
 </div>
