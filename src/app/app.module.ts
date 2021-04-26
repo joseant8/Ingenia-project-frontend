@@ -10,6 +10,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatTableModule} from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -34,6 +35,7 @@ import { TagFormComponent } from './components/forms/tag-form/tag-form.component
 import { RegisterFormComponent } from './components/forms/register-form/register-form.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { ExpertCreatePageComponent } from './pages/expert-create-page/expert-create-page.component';
+import { ExpertFormComponent } from './components/forms/expert-form/expert-form.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,7 @@ import { ExpertCreatePageComponent } from './pages/expert-create-page/expert-cre
     RegisterFormComponent,
     RegisterPageComponent,
     ExpertCreatePageComponent,
+    ExpertFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,7 +68,8 @@ import { ExpertCreatePageComponent } from './pages/expert-create-page/expert-cre
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]
