@@ -8,8 +8,8 @@ import { catchError } from 'rxjs/operators';
 })
 export class ExpertService {
 
-  //private readonly EXPERTS_URL:string = '/API/expertos';
-  private readonly EXPERTS_URL:string = 'https://spring-app-expertos-backend.herokuapp.com/API/expertos';
+  private readonly EXPERTS_URL:string = '/API/expertos';
+  //private readonly EXPERTS_URL:string = 'https://spring-app-expertos-backend.herokuapp.com/API/expertos';
 
   constructor(private http: HttpClient) { }
 

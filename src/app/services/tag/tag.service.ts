@@ -8,8 +8,8 @@ import { catchError } from 'rxjs/operators';
 })
 export class TagService {
 
-  //private readonly TAGS_URL:string = '/API/etiquetas';
-  private readonly TAGS_URL:string = 'https://spring-app-expertos-backend.herokuapp.com/API/etiquetas';
+  private readonly TAGS_URL:string = '/API/etiquetas';
+  //private readonly TAGS_URL:string = 'https://spring-app-expertos-backend.herokuapp.com/API/etiquetas';
 
   constructor(private http: HttpClient) { }
 
