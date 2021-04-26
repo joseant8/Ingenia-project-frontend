@@ -33,6 +33,8 @@ export class AuthService {
           // server-side error
           if(error.status === 401){  // 401: Unauthorized
             errorMessage = 'No autorizado. El email y/o contraseña no son válidos.';
+          } else if(error.status === 504){  // 504: Gateway Timeout
+            errorMessage = 'No ha sido posible conectar con el servidor de los datos. Inténtelo más tarde.';
           }
 
         }
@@ -53,14 +55,16 @@ export class AuthService {
     // http siempre devuelve observables
     return this.http.post(this.REGISTER_URL, body).pipe(
       catchError((error: HttpErrorResponse) => {
-        let errorMessage = '';
+        let errorMessage = 'Error';
         if (error.error instanceof ErrorEvent) {
           // client-side error
           errorMessage = `Error: ${error.error.message}`;
         } else {
           // server-side error
-          if(error.status === 400){  // 401: BadRequest
+          if(error.status === 400){  // 400: BadRequest
             errorMessage = 'No se ha podido registrar. El email introducido ya está registrado.';
+          }else if(error.status === 504){  // 504: Gateway Timeout
+            errorMessage = 'No ha sido posible conectar con el servidor de los datos. Inténtelo más tarde.';
           }
 
         }
