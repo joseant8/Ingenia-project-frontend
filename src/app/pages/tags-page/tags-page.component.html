@@ -1,16 +1,63 @@
-<p>Lista de Etiquetas</p>
+<div class="navegacion-up">
+  <h3>
+    Lista de Etiquetas
+  </h3>
+  <span class="derecha">
+    <button routerLink='/etiquetas/crear' routerLinkActive="router-link-active" mat-raised-button class="verde" type="submit">
+      <mat-icon>add</mat-icon> Añadir Etiqueta
+    </button>
+  </span>
+</div>
 
-
-<div>
-  <h4>
-    Listado
-  </h4>
-  <div>ETIQUETA, CREADOR, FECHA CREACIÓN</div>
+<!--
   <div *ngFor="let t of tagsList">
     <app-tag [t]="t"></app-tag>
     <hr>
   </div>
+-->
+
+<!-- Tabla de etiquetas -->
+<div class="padding-contenedor-principal">
+  <div class="tabla-centrada">
+    <table mat-table [dataSource]="tagsList" class="mat-elevation-z8">
+
+      <!-- Nombre etiqueta -->
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef> ETIQUETA </th>
+        <td mat-cell *matCellDef="let element">
+          {{element.nombre}}
+        </td>
+      </ng-container>
+
+      <!-- Creador -->
+      <ng-container matColumnDef="creador">
+        <th mat-header-cell *matHeaderCellDef> CREADOR </th>
+        <td mat-cell *matCellDef="let element">
+          {{element.creador.nombreCompleto}}
+        </td>
+      </ng-container>
+
+      <!-- Fecha creación -->
+      <ng-container matColumnDef="fecha_creacion">
+        <th mat-header-cell *matHeaderCellDef> FECHA CREACIÓN </th>
+        <td mat-cell *matCellDef="let element">
+          {{element.created_at | date: 'dd/mm/yyyy' }}
+        </td>
+      </ng-container>
+
+      <!-- Eliminar etiqueta -->
+      <ng-container matColumnDef="eliminar">
+        <th mat-header-cell *matHeaderCellDef> ELIMINAR </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-raised-button class="rojo" (click)="deleteTag(element.id, element.nombre)"><mat-icon>delete_outline</mat-icon>Borrar Etiqueta</button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-header-row *ngFor="let e of tagsList"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
 </div>
 
-<button color="warning" [routerLink]="['/etiquetas/crear']"> Crear Etiqueta </button>
 

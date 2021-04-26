@@ -9,17 +9,7 @@
   </span>
 </div>
 
-<!--
-<div>
-  <h4>
-    Listado
-  </h4>
-  <div *ngFor="let e of expertsList">
-    Experto id: {{e.id}}, {{e.nombre}}, {{e.created_at}}
-    <a routerLink='/expertos/{{e.id}}' routerLinkActive="router-link-active" [state]="e"> Ver detalle </a>
-  </div>
-</div>
--->
+<!-- Tabla de expertos -->
 <div class="padding-contenedor-principal">
   <div class="tabla-centrada">
     <table mat-table [dataSource]="expertsList" class="mat-elevation-z8">
