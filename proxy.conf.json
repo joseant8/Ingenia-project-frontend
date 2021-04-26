@@ -1,6 +1,6 @@
 {
   "/API/*":{
-    "target":"https://spring-app-expertos-backend.herokuapp.com",
+    "target":"http://localhost:8080",
     "secure":false,
     "logLevel":"debug"
   }
