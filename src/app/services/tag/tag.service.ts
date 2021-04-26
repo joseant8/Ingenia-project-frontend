@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-import { Tag } from 'src/app/models/tag/tag.model';
+import { Observable, throwError } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -24,10 +24,27 @@ export class TagService {
     return this.http.delete(this.TAGS_URL+'/'+id, {headers})
   }
 
-  //createTag(tag:Tag): Observable<any> {
   createTag(tag:{}): Observable<any> {
     let token = 'Bearer ' + localStorage.getItem('Token')
     let headers = {'Authorization':token}
-    return this.http.post(this.TAGS_URL, tag, {headers})
+    return this.http.post(this.TAGS_URL, tag, {headers}).pipe(
+      catchError((error: HttpErrorResponse) => {
+        let errorMessage = 'Error';
+        if (error.error instanceof ErrorEvent) {
+          // client-side error
+          errorMessage = `Error: ${error.error.message}`;
+        } else {
+          // server-side error
+          if(error.status === 400){  // 400: BadRequest
+            errorMessage = 'El nombre de la etiqueta ya existe.';
+          } else if(error.status === 504){  // 504: Gateway Timeout
+            errorMessage = 'No ha sido posible conectar con el servidor de los datos. Inténtelo más tarde.';
+          }
+
+        }
+        window.alert(errorMessage);
+        return throwError(errorMessage);
+      })
+    );
   }
 }
