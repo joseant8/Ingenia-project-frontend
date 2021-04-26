@@ -22,3 +22,26 @@
   text-align:right;
   padding-right: 5vh;
 }
+
+
+// link
+a {
+  color: black;
+}
+
+/* visited link */
+a:visited {
+  color: none;
+  text-decoration: none;
+}
+
+/* mouse over link */
+a:hover {
+  color: rgb(100, 100, 100);
+  text-underline: none;
+}
+
+/* selected link */
+a:active {
+  color: none;
+}
