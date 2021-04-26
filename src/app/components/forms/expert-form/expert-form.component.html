@@ -1,0 +1,98 @@
+<mat-card class="contenedor-experto">
+
+  <span class="imagen">
+    <img src="assets/images/user-img.svg" alt="experto">
+  </span>
+
+
+
+    <!-- Bloque nombre -->
+    <span class="puntero" (click)="showEditNombre()" #tooltip="matTooltip"
+      matTooltip="Haz click para editar"
+      matTooltipPosition="right">
+      <a link>{{experto.nombre}}</a>
+    </span>
+    <div *ngIf="edit_nombre_show">
+      <form [formGroup]="editForm" (submit)="editNombre()">
+        <mat-form-field appearance="outline">
+          <input matInput formControlName="nombre" placeholder="Nombre Completo"/>
+        </mat-form-field>
+        <mat-card-actions>
+          <button mat-raised-button color="primary" type="submit">
+            Editar
+          </button>
+        </mat-card-actions>
+      </form>
+    </div>
+
+
+    <!-- Bloque nif -->
+    <span class="puntero" (click)="showEditNif()" #tooltip="matTooltip"
+          matTooltip="Haz click para editar"
+          matTooltipPosition="right">
+          <a link>{{experto.nif}}</a>
+    </span>
+    <div *ngIf="edit_nif_show">
+      <form [formGroup]="editForm" (submit)="editNif()">
+        <mat-form-field appearance="outline">
+          <input matInput formControlName="nif" placeholder="Nif"/>
+        </mat-form-field>
+        <mat-card-actions>
+          <button mat-raised-button color="primary" type="submit">
+            Editar
+          </button>
+        </mat-card-actions>
+      </form>
+    </div>
+
+
+  <!-- Bloque telefono -->
+  <span class="puntero" (click)="showEditTel()" #tooltip="matTooltip"
+        matTooltip="Haz click para editar"
+        matTooltipPosition="right">
+        <a link>{{experto.contacto_telefono}}</a>
+  </span>
+  <div *ngIf="edit_tel_show">
+    <form [formGroup]="editForm" (submit)="editTel()">
+      <mat-form-field appearance="outline">
+        <input matInput formControlName="contacto_telefono" placeholder="Teléfono"/>
+      </mat-form-field>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit">
+          Editar
+        </button>
+      </mat-card-actions>
+    </form>
+  </div>
+
+
+  <!-- Bloque email -->
+  <span class="puntero" (click)="showEditEmail()" #tooltip="matTooltip"
+        matTooltip="Haz click para editar"
+        matTooltipPosition="right">
+        <a link>{{experto.contacto_email}}</a>
+  </span>
+  <div *ngIf="edit_email_show">
+    <form [formGroup]="editForm" (submit)="editEmail()">
+      <mat-form-field appearance="outline">
+        <input matInput formControlName="contacto_email" placeholder="Email"/>
+      </mat-form-field>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit">
+          Editar
+        </button>
+      </mat-card-actions>
+    </form>
+  </div>
+
+
+  <!-- Bloque Etiquetas -->
+  <div *ngFor="let tag of experto.etiquetas">
+    <p>{{tag.nombre}}</p>
+  </div>
+
+</mat-card>
+
+
+
+
