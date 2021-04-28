@@ -13,8 +13,8 @@ import { Register } from 'src/app/models/register/register.model';
 export class AuthService {
 
   //-------
-  private readonly BASE_URL:string = 'http://localhost:8080/API/';
-  //private readonly BASE_URL:string = 'https://spring-app-expertos-backend.herokuapp.com/API/';
+  //private readonly BASE_URL:string = 'http://localhost:8080/API/';
+  private readonly BASE_URL:string = 'https://spring-app-expertos-backend.herokuapp.com/API/';
   //-------
 
   private readonly LOGIN_URL:string = this.BASE_URL+'auth/login';
