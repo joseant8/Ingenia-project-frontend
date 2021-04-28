@@ -22,6 +22,27 @@ export class ExpertsPageComponent implements OnInit, OnDestroy {
     });
   }
 
+  filtroNombre(filtro:any){
+    this.expertSubscription = this.expertService.getAllExpertsFilter("nombre",filtro).subscribe((response) => {
+      this.expertsList = response;
+    });
+  }
+  filtroEstado(filtro:any){
+    this.expertSubscription = this.expertService.getAllExpertsFilter("estado",filtro).subscribe((response) => {
+      this.expertsList = response;
+    });
+  }
+  filtroEtiqueta(filtro:any){
+    this.expertSubscription = this.expertService.getAllExpertsFilter("etiqueta",filtro).subscribe((response) => {
+      this.expertsList = response;
+    });
+  }
+  filtroValoracion(filtro:any){
+    this.expertSubscription = this.expertService.getAllExpertsFilter("valoracion",filtro).subscribe((response) => {
+      this.expertsList = response;
+    });
+  }
+
   getColorEstado(estado: string) {
     if(estado === 'Validado'){
       return '#4ADEBB';
