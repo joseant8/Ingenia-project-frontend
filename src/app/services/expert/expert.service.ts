@@ -8,8 +8,12 @@ import { catchError } from 'rxjs/operators';
 })
 export class ExpertService {
 
-  private readonly EXPERTS_URL:string = '/API/expertos';
-  //private readonly EXPERTS_URL:string = 'https://spring-app-expertos-backend.herokuapp.com/API/expertos';
+  //-------
+  private readonly BASE_URL:string = 'http://localhost:8080/API/';
+  //private readonly BASE_URL:string = 'https://spring-app-expertos-backend.herokuapp.com/API/';
+  //-------
+
+  private readonly EXPERTS_URL:string = this.BASE_URL+'expertos';
 
   constructor(private http: HttpClient) { }
 
@@ -31,6 +35,32 @@ export class ExpertService {
             errorMessage = 'No ha sido posible conectar con el servidor de los datos. Inténtelo más tarde.';
           }
 
+        }
+        window.alert(errorMessage);
+        return throwError(errorMessage);
+      })
+    );
+  }
+
+
+
+  // recuperar todos los expertos con filtros
+  getAllExpertsFilter(nameFilter:string, valueFilter:string): Observable<any>{
+    let token = 'Bearer ' + localStorage.getItem('Token')
+    let headers = {'Authorization':token}
+    return this.http.get(this.EXPERTS_URL+'?'+nameFilter+'='+valueFilter, {headers}).pipe(
+      catchError((error: HttpErrorResponse) => {
+        let errorMessage = 'Error';
+        if (error.error instanceof ErrorEvent) {
+          // client-side error
+          errorMessage = `Error: ${error.error.message}`;
+        } else {
+          // server-side error
+          if(error.status === 401){  // 401: Unauthorized
+            errorMessage = 'No autorizado. El email y/o contraseña no son válidos.';
+          } else if(error.status === 504){  // 504: Gateway Timeout
+            errorMessage = 'No ha sido posible conectar con el servidor de los datos. Inténtelo más tarde.';
+          }
         }
         window.alert(errorMessage);
         return throwError(errorMessage);
