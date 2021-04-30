@@ -13,7 +13,7 @@ import { Tag } from 'src/app/models/tag/tag.model';
 })
 export class ExpertDetailPageComponent implements OnInit, OnDestroy {
 
-  experto: any = new Expert(0, '', new Date(), new Date(), '', '', '', 0, '', '', '', '', '', []);
+  experto: any = new Expert(0, '', new Date(), new Date(), '', '', '', 0, '', '', '', '', '', '', []);
   experto_id: any = 0;
   expertSuscription: Subscription = new Subscription();
   listaTodasLasEtiquetas: Tag[] = [];
