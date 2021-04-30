@@ -24,6 +24,13 @@ export class ExpertsPageComponent implements OnInit, OnDestroy {
     });
   }
 
+
+  ordenNombre(orden:any){   // orden es ASC o DESC
+    this.expertSubscription = this.expertService.getAllExpertsFilter("orden",orden).subscribe((response) => {
+      this.expertsList = response;
+    });
+  }
+
   filtroNombre(filtro:any){
     this.expertSubscription = this.expertService.getAllExpertsFilter("nombre",filtro).subscribe((response) => {
       this.expertsList = response;
