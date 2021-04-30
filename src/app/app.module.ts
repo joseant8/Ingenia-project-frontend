@@ -33,6 +33,7 @@ import { ExpertCreatePageComponent } from './pages/expert-create-page/expert-cre
 import { ExpertFormComponent } from './components/forms/expert-form/expert-form.component';
 import { NewExpertFormComponent } from './components/forms/new-expert-form/new-expert-form.component';
 import { PopupDeleteTagComponent } from './components/popups/popup-delete-tag/popup-delete-tag.component';
+import { PopupDeleteExpertComponent } from './components/popups/popup-delete-expert/popup-delete-expert.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { PopupDeleteTagComponent } from './components/popups/popup-delete-tag/po
     ExpertCreatePageComponent,
     ExpertFormComponent,
     NewExpertFormComponent,
-    PopupDeleteTagComponent
+    PopupDeleteTagComponent,
+    PopupDeleteExpertComponent
   ],
   imports: [
     BrowserModule,
