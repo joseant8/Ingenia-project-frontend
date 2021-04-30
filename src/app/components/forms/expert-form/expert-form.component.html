@@ -1,5 +1,6 @@
 <mat-card class="contenedor-experto">
 
+  <!-- BLOQUE nombre, nif, fechas-->
   <span class="imagen-nombre-nif">
     <span class="texto">
       <img src="assets/images/user-img.svg" alt="experto">
@@ -7,46 +8,36 @@
 
 
     <span class="nombre-nif">
-      <!-- Bloque nombre -->
+      <!-- subloque nombre -->
       <span class="puntero" (click)="showEditNombre()" #tooltip="matTooltip"
         matTooltip="Haz click para editar"
         matTooltipPosition="right">
         <a link>{{experto.nombre}}</a>
       </span>
-      <div *ngIf="edit_nombre_show">
-        <form [formGroup]="editForm" (submit)="editNombre()">
+      <span *ngIf="edit_nombre_show">
+        <form [formGroup]="editFormNombre">
           <mat-form-field appearance="outline">
-            <input matInput formControlName="nombre" placeholder="Nombre Completo"/>
+            <input matInput formControlName="nombre" placeholder="Nombre Completo" (keydown.enter)="editNombre()"/>
           </mat-form-field>
-          <mat-card-actions>
-            <button mat-raised-button color="primary" type="submit">
-              Editar
-            </button>
-          </mat-card-actions>
         </form>
-      </div>
+      </span>
       <br><br>
 
 
-      <!-- Bloque nif -->
+      <!-- subloque nif -->
       NIF:
       <span class="puntero" (click)="showEditNif()" #tooltip="matTooltip"
             matTooltip="Haz click para editar"
             matTooltipPosition="right">
             <a link>{{experto.nif}}</a>
       </span>
-      <div *ngIf="edit_nif_show">
-        <form [formGroup]="editForm" (submit)="editNif()">
+      <span *ngIf="edit_nif_show">
+        <form [formGroup]="editFormNif">
           <mat-form-field appearance="outline">
-            <input matInput formControlName="nif" placeholder="Nif"/>
+            <input matInput formControlName="nif" placeholder="Nif" (keydown.enter)="editNif()" class="form-control" pattern="[0-8]{8}[a-zA-Z]" minlength=9 maxlength=9/>
           </mat-form-field>
-          <mat-card-actions>
-            <button mat-raised-button color="primary" type="submit">
-              Editar
-            </button>
-          </mat-card-actions>
         </form>
-      </div>
+      </span>
     </span>
   </span>
 
@@ -63,92 +54,144 @@
   </span>
 
 
-  <!-- Disp., estado, valoración y origen-->
-    <div class="padding-fila2">DISPONIBILIDAD:</div>
-    <div class="padding-fila2">ESTADO:</div>
-    <div class="padding-fila2" >VALORACIÓN:</div>
-    <div class="padding-fila2">ORIGEN:</div>
+  <!-- BLOQUE Disp., estado, valoración y origen-->
+    <mat-form-field class="padding-fila2" appearance="fill">
+      <mat-label>DISPONIBILIDAD</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let d of listaDisponibilidad" [value]="d" (click)="editDisp(d)">
+          {{d}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="padding-fila2" appearance="fill">
+      <mat-label>ESTADO</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let e of listaEstados" [value]="e" (click)="editEstado(e)">
+          {{e}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="padding-fila2" appearance="fill">
+      <mat-label>VALORACIÓN</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let v of listaValoraciones" [value]="v" (click)="editValoracion(v)">
+          {{v}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="padding-fila2" appearance="fill">
+      <mat-label>ORIGEN</mat-label>
+      <mat-select>
+        <mat-option>
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
     <div class="padding-fila3">
-      <br>{{experto.disponibilidad}}</div>
-    <div class="padding-fila3" [style.color] = "getColorEstado(experto.estado)">
-      <br>{{experto.estado}}</div>
-    <div class="padding-fila3" >
-      <br>{{experto.puntuacion}}</div>
-    <div class="padding-fila3">
-      <br>{{experto.origen}}</div>
-
-
-  <span class="datos-contacto-experto">
-    <div class="padding-contacto">
-      <mat-icon>phone</mat-icon>Teléfono
+      {{experto.disponibilidad}}
     </div>
-    <div>
-      <!-- Bloque telefono -->
-      <span class="puntero padding-contacto" (click)="showEditTel()" #tooltip="matTooltip"
+    <div class="padding-fila3" [style.color] = "getColorEstado(experto.estado)">
+      <mat-icon>circle</mat-icon>{{experto.estado}}
+    </div>
+    <div class="padding-fila3" [style.color] = "getColorValoracion(experto.puntuacion)">
+      {{experto.puntuacion}}
+    </div>
+    <div class="padding-fila3">
+      {{experto.origen}}
+    </div>
+
+
+  <!-- BLOQUE teléfono, email, dirección, CV, linkedin -->
+  <span class="datos-contacto-experto">
+    <span class="padding-contacto clave-cont">
+      <mat-icon>phone</mat-icon>Teléfono
+    </span>
+    <span class="padding-contacto clave-valor">
+      <!-- subloque telefono -->
+      <span class="puntero" (click)="showEditTel()" #tooltip="matTooltip"
             matTooltip="Haz click para editar"
             matTooltipPosition="right">
-            <a link>{{experto.contacto_telefono}}</a>
+            {{experto.contacto_telefono}}
       </span>
-      <div *ngIf="edit_tel_show">
-        <form [formGroup]="editForm" (submit)="editTel()">
+      <span *ngIf="edit_tel_show">
+        <form [formGroup]="editFormTel">
           <mat-form-field appearance="outline">
-            <input matInput formControlName="contacto_telefono" placeholder="Teléfono"/>
+            <input matInput formControlName="contacto_telefono" placeholder="Teléfono" (keydown.enter)="editTel()" class="form-control" pattern="[0-9]+" minlength=9 maxlength=9>
           </mat-form-field>
-          <mat-card-actions>
-            <button mat-raised-button color="primary" type="submit">
-              Editar
-            </button>
-          </mat-card-actions>
         </form>
-      </div>
-    </div>
+      </span>
+    </span>
 
-    <div class="padding-contacto">
+    <div class="padding-contacto clave-cont">
       <mat-icon>email</mat-icon>Correo
     </div>
-      <!-- Bloque email -->
-      <span class="puntero padding-contacto" (click)="showEditEmail()" #tooltip="matTooltip"
+    <span class="padding-contacto valor-cont">
+      <!-- subloque email -->
+      <span class="puntero" (click)="showEditEmail()" #tooltip="matTooltip"
             matTooltip="Haz click para editar"
             matTooltipPosition="right">
             <a link>{{experto.contacto_email}}</a>
       </span>
       <div *ngIf="edit_email_show">
-        <form [formGroup]="editForm" (submit)="editEmail()">
+        <form [formGroup]="editFormEmail">
           <mat-form-field appearance="outline">
-            <input matInput formControlName="contacto_email" placeholder="Email"/>
+            <input matInput formControlName="contacto_email" placeholder="Email" (keydown.enter)="editEmail()"/>
           </mat-form-field>
-          <mat-card-actions>
-            <button mat-raised-button color="primary" type="submit">
-              Editar
-            </button>
-          </mat-card-actions>
         </form>
       </div>
+    </span>
 
-    <div class="padding-contacto">
+    <div class="padding-contacto clave-cont">
       <mat-icon>home</mat-icon>Dirección
     </div>
-    <div class="padding-contacto">
-    </div>
+    <span class="padding-contacto valor-cont">
+      <!-- subloque dirección -->
+      <span class="puntero" (click)="showEditDirec()" #tooltip="matTooltip"
+            matTooltip="Haz click para editar"
+            matTooltipPosition="right">
+            <a link>{{experto.direccion}}</a>
+      </span>
+      <div *ngIf="edit_direc_show">
+        <form [formGroup]="editFormDirec">
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="direccion" placeholder="Dirección" (keydown.enter)="editDirection()"/>
+          </mat-form-field>
+        </form>
+      </div>
+    </span>
 
-    <div class="padding-contacto">
+    <div class="padding-contacto clave-cont">
       <mat-icon>insert_drive_file</mat-icon>CV
     </div>
-    <div class="padding-contacto">
+    <div class="padding-contacto valor-cont">
       {{experto.fichero_cv}}
     </div>
 
-    <div class="padding-contacto">
+    <div class="padding-contacto clave-cont">
       <mat-icon>insert_link</mat-icon>LinkedIn
     </div>
-    <div class="padding-contacto">
-      {{experto.contacto_linkedin}}
-    </div>
+    <span class="padding-contacto valor-cont">
+      <!-- subloque linkedin -->
+      <span class="puntero" (click)="showEditLinkedin()" #tooltip="matTooltip"
+            matTooltip="Haz click para editar"
+            matTooltipPosition="right">
+            <a link>{{experto.contacto_linkedin}}</a>
+      </span>
+      <div *ngIf="edit_linkedin_show">
+        <form [formGroup]="editFormLinkedin">
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="contacto_linkedin" placeholder="LinkedIn" (keydown.enter)="editLinkedIn()"/>
+          </mat-form-field>
+        </form>
+      </div>
+    </span>
   </span>
 
 
-    <!-- Bloque Etiquetas -->
+    <!-- subloque Etiquetas -->
     <div style="text-align:left; padding: 0.5vh;">
       Etiquetas:
       <mat-form-field appearance="fill">
@@ -159,11 +202,10 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
-      <div class="etiquetas button-tag" *ngFor="let tag of experto.etiquetas">
-        <span >{{tag.nombre}}</span>
-      </div>
+      <span *ngFor="let tag of experto.etiquetas">
+        <button mat-button class="etiqueta" (click)="deleteEtiqueta(tag.id)">{{tag.nombre}}<mat-icon>close</mat-icon></button>&nbsp;
+      </span>
     </div>
-
 
 </mat-card>
 
