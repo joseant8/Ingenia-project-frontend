@@ -1,0 +1,8 @@
+<div mat-dialog-content>
+  <h5>¿Estás seguro que deseas eliminar <u><b>{{tag.nombre}}</b></u> de la lista de etiquetas?</h5>
+  <p>¡La etiqueta desaparecerá de las fichas de expertos también!</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onClickCancel()" >Cancelar</button>
+  <button mat-button (click)="onClickDeleteTag()" style="background-color: #D66464;">Eliminar</button>
+</div>
