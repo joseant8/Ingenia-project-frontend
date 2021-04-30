@@ -14,6 +14,8 @@ export class ExpertsPageComponent implements OnInit, OnDestroy {
   expertSubscription: Subscription = new Subscription();
   displayedColumns: string[] = ['nombre', 'estado', 'etiquetas', 'valoracion'];
 
+  valoraciones: string[] = ['Todos', '100','95','90','85','80','75','70','65','60','55','50','45','40','35','30','25','20','15','10','5'];
+
   constructor(private expertService: ExpertService) { }
 
   ngOnInit(): void {
@@ -38,9 +40,16 @@ export class ExpertsPageComponent implements OnInit, OnDestroy {
     });
   }
   filtroValoracion(filtro:any){
-    this.expertSubscription = this.expertService.getAllExpertsFilter("valoracion",filtro).subscribe((response) => {
-      this.expertsList = response;
-    });
+    if(filtro === 'Todos'){
+      this.expertSubscription = this.expertService.getAllExperts().subscribe((response) => {
+        this.expertsList = response;
+      });
+    }else{
+      this.expertSubscription = this.expertService.getAllExpertsFilter("valoracion",filtro).subscribe((response) => {
+        this.expertsList = response;
+      });
+    }
+
   }
 
   getColorEstado(estado: string) {

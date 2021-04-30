@@ -1,5 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
+import { PopupDeleteTagComponent } from 'src/app/components/popups/popup-delete-tag/popup-delete-tag.component';
 import { Tag } from 'src/app/models/tag/tag.model';
 import { TagService } from 'src/app/services/tag/tag.service';
 
@@ -14,7 +16,7 @@ export class TagsPageComponent implements OnInit, OnDestroy {
   tagSubscription: Subscription = new Subscription();
   displayedColumns: string[] = ['nombre', 'creador', 'fecha_creacion', 'eliminar'];
 
-  constructor(private tagService: TagService) { }
+  constructor(private tagService: TagService, public popup: MatDialog) { }
 
   ngOnInit(): void {
     this.tagSubscription = this.tagService.getAllTags().subscribe((response) => {
@@ -23,13 +25,12 @@ export class TagsPageComponent implements OnInit, OnDestroy {
   }
 
 
-  deleteTag(id:number, nombre:string){
-    if(window.confirm('¿Estás seguro que deseas eliminar \'' + nombre + '\' de la lista de etiquetas?\n¡La etiqueta desaparecerá de la ficha de expertos también!')){
-      this.tagService.deleteTag(id).subscribe((response) => {
-        window.location.reload();  // recargar la página
-        alert('Etiqueta \'' + nombre + '\' eliminada correctamente');
-      });
-    }
+  deleteTag(tag: Tag){
+
+    const dialogRef = this.popup.open(PopupDeleteTagComponent, {
+      width: '60vh',
+      data: tag
+    });
   }
 
 

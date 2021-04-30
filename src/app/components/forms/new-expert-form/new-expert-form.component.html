@@ -25,7 +25,7 @@
 
     TELÉFONO*<br>
     <mat-form-field appearance="outline">
-      <input matInput formControlName="contacto_telefono" placeholder="Teléfono"/>
+      <input matInput formControlName="contacto_telefono" placeholder="Teléfono" pattern="[0-9]+" minlength=9 maxlength=9/>
     </mat-form-field>
     <br>
 
@@ -34,6 +34,26 @@
       <input matInput formControlName="contacto_linkedin" placeholder="Teléfono"/>
     </mat-form-field>
     <br>
+
+    <div style="text-align:left; padding: 0.5vh;">
+      ETIQUETAS:
+      <mat-form-field appearance="fill">
+        <mat-label>Añadir etiqueta</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let tag of listaTodasLasEtiquetas" [value]="tag" (click)="addEtiqueta(tag)">
+            {{tag.nombre}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div class="etiquetas button-tag" *ngFor="let tag of listaEtiquetasNewExpert">
+        <button mat-button class="etiqueta" (click)="deleteTag(tag)">{{tag.nombre}}<mat-icon>close</mat-icon></button>
+      </div>
+    </div>
+    <br>
+
+
+
+
 
     <mat-card-actions>
       <button mat-raised-button color="primary" type="submit">

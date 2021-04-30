@@ -55,11 +55,11 @@
   <span class="fechas">
     CREADO:
     <br>
-    {{experto.created_at | date: 'dd/MM/yyyy'}}
+    {{experto.created_at | date: 'dd/MM/yyyy, h:mm a'}}
     <br><br>
     ÚLTIMO CAMBIO:
     <br>
-    {{experto.updated_at | date: 'dd/MM/yyyy'}}
+    {{experto.updated_at | date: 'dd/MM/yyyy, h:mm a'}}
   </span>
 
 
@@ -80,12 +80,12 @@
 
 
   <span class="datos-contacto-experto">
-    <div>
+    <div class="padding-contacto">
       <mat-icon>phone</mat-icon>Teléfono
     </div>
-    <div style="padding: 0.5vh;">
+    <div>
       <!-- Bloque telefono -->
-      <span class="puntero" (click)="showEditTel()" #tooltip="matTooltip"
+      <span class="puntero padding-contacto" (click)="showEditTel()" #tooltip="matTooltip"
             matTooltip="Haz click para editar"
             matTooltipPosition="right">
             <a link>{{experto.contacto_telefono}}</a>
@@ -104,11 +104,11 @@
       </div>
     </div>
 
-    <div style="padding: 0.5vh;">
+    <div class="padding-contacto">
       <mat-icon>email</mat-icon>Correo
     </div>
       <!-- Bloque email -->
-      <span class="puntero" (click)="showEditEmail()" #tooltip="matTooltip"
+      <span class="puntero padding-contacto" (click)="showEditEmail()" #tooltip="matTooltip"
             matTooltip="Haz click para editar"
             matTooltipPosition="right">
             <a link>{{experto.contacto_email}}</a>
@@ -126,33 +126,39 @@
         </form>
       </div>
 
-    <div style="padding: 0.5vh;">
+    <div class="padding-contacto">
       <mat-icon>home</mat-icon>Dirección
     </div>
-    <div style="padding: 0.5vh;">
+    <div class="padding-contacto">
     </div>
 
-    <div style="padding: 0.5vh;">
+    <div class="padding-contacto">
       <mat-icon>insert_drive_file</mat-icon>CV
     </div>
-    <div style="padding: 0.5vh;">
+    <div class="padding-contacto">
       {{experto.fichero_cv}}
     </div>
 
-    <div style="padding: 0.5vh;">
+    <div class="padding-contacto">
       <mat-icon>insert_link</mat-icon>LinkedIn
     </div>
-    <div style="padding: 0.5vh;">
+    <div class="padding-contacto">
       {{experto.contacto_linkedin}}
     </div>
   </span>
 
 
-
-
     <!-- Bloque Etiquetas -->
     <div style="text-align:left; padding: 0.5vh;">
       Etiquetas:
+      <mat-form-field appearance="fill">
+        <mat-label>Añadir etiqueta</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let tag of listaTodasLasEtiquetas" [value]="tag" (click)="addEtiqueta(tag.id)">
+            {{tag.nombre}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
       <div class="etiquetas button-tag" *ngFor="let tag of experto.etiquetas">
         <span >{{tag.nombre}}</span>
       </div>

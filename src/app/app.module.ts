@@ -13,6 +13,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { MatButtonModule } from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatSelectModule} from '@angular/material/select';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -31,6 +32,7 @@ import { RegisterPageComponent } from './pages/register-page/register-page.compo
 import { ExpertCreatePageComponent } from './pages/expert-create-page/expert-create-page.component';
 import { ExpertFormComponent } from './components/forms/expert-form/expert-form.component';
 import { NewExpertFormComponent } from './components/forms/new-expert-form/new-expert-form.component';
+import { PopupDeleteTagComponent } from './components/popups/popup-delete-tag/popup-delete-tag.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,8 @@ import { NewExpertFormComponent } from './components/forms/new-expert-form/new-e
     RegisterPageComponent,
     ExpertCreatePageComponent,
     ExpertFormComponent,
-    NewExpertFormComponent
+    NewExpertFormComponent,
+    PopupDeleteTagComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +66,9 @@ import { NewExpertFormComponent } from './components/forms/new-expert-form/new-e
     MatButtonModule,
     MatIconModule,
     MatExpansionModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatSelectModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

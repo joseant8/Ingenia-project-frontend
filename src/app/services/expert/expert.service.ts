@@ -29,9 +29,7 @@ export class ExpertService {
           errorMessage = `Error: ${error.error.message}`;
         } else {
           // server-side error
-          if(error.status === 401){  // 401: Unauthorized
-            errorMessage = 'No autorizado. El email y/o contraseña no son válidos.';
-          } else if(error.status === 504){  // 504: Gateway Timeout
+          if(error.status === 504){  // 504: Gateway Timeout
             errorMessage = 'No ha sido posible conectar con el servidor de los datos. Inténtelo más tarde.';
           }
 
@@ -56,8 +54,8 @@ export class ExpertService {
           errorMessage = `Error: ${error.error.message}`;
         } else {
           // server-side error
-          if(error.status === 401){  // 401: Unauthorized
-            errorMessage = 'No autorizado. El email y/o contraseña no son válidos.';
+          if(error.status === 500){  // 401: Unauthorized
+            errorMessage = 'No se ha obtenido ningún resultado.';
           } else if(error.status === 504){  // 504: Gateway Timeout
             errorMessage = 'No ha sido posible conectar con el servidor de los datos. Inténtelo más tarde.';
           }
@@ -81,9 +79,7 @@ export class ExpertService {
           errorMessage = `Error: ${error.error.message}`;
         } else {
           // server-side error
-          if(error.status === 401){  // 401: Unauthorized
-            errorMessage = 'No autorizado.';
-          }else if(error.status === 404){  // 404: Not Found
+          if(error.status === 404){  // 404: Not Found
             errorMessage = 'No se ha encontrado el usuario en la Base de Datos';
           } else if(error.status === 504){  // 504: Gateway Timeout
             errorMessage = 'No ha sido posible conectar con el servidor de los datos. Inténtelo más tarde.';

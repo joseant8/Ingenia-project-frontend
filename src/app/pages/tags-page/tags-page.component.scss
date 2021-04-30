@@ -23,15 +23,20 @@
   padding-right: 5vh;
 }
 
-.mat-raised-button {
-  color:white;
-}
 
 .verde{
   background-color: #0ED28C;
+  color:white;
 }
 
-.rojo {
-  background-color: #D66464;
+.eliminar-etiqueta-button {
+  background-color: #b8b8b8;
+  color: rgb(63, 63, 63);
   text-align: right;
+}
+
+.eliminar-etiqueta-button:hover {
+  background-color: #D66464;
+  color: white;
+  //text-align: right;
 }

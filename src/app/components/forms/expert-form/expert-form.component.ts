@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Expert } from 'src/app/models/expert/expert.model';
+import { Tag } from 'src/app/models/tag/tag.model';
 import { ExpertService } from 'src/app/services/expert/expert.service';
 
 @Component({
@@ -13,6 +14,7 @@ import { ExpertService } from 'src/app/services/expert/expert.service';
 export class ExpertFormComponent implements OnInit, OnDestroy {
 
   @Input() experto: Expert = new Expert(0, '', new Date(), new Date(), '', '', '', 0, '', '', '', '', '', []);
+  @Input() listaTodasLasEtiquetas: Tag[] = [];
 
   editForm: FormGroup = new FormGroup({});
   expertSubscription: Subscription = new Subscription();
@@ -28,9 +30,9 @@ export class ExpertFormComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.editForm = this.formBuilder.group({
       nombre: [this.experto.nombre, Validators.required],
-      contacto_email: ['', Validators.compose([Validators.required, Validators.email])],
-      contacto_telefono: ['', Validators.required],
-      nif: ['', Validators.required]
+      contacto_email: [Validators.compose([Validators.required, Validators.email])],
+      contacto_telefono: [Validators.required],
+      nif: [Validators.required]
     });
   }
 
@@ -100,6 +102,17 @@ export class ExpertFormComponent implements OnInit, OnDestroy {
     } else {
       alert('El email introducido no es válido.')
     }
+  }
+
+
+  // Añadir etiqueta en el experto
+  addEtiqueta(id:number): void{
+    let body = {
+      ids_etiquetas: [id]
+    }
+    this.expertSubscription = this.expertService.editExpert(this.experto.id, body).subscribe((response) => {
+      window.location.reload();
+    });
   }
 
   showEditEmail(){
