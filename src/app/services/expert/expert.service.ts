@@ -9,8 +9,8 @@ import { catchError } from 'rxjs/operators';
 export class ExpertService {
 
   //-------
-  private readonly BASE_URL:string = 'http://localhost:8080/API/';
-  //private readonly BASE_URL:string = 'https://spring-app-expertos-backend.herokuapp.com/API/';
+  //private readonly BASE_URL:string = 'http://localhost:8080/API/';
+  private readonly BASE_URL:string = 'https://spring-app-expertos-backend.herokuapp.com/API/';
   //-------
 
   private readonly EXPERTS_URL:string = this.BASE_URL+'expertos';
