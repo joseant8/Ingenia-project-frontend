@@ -23,18 +23,17 @@
       </span>
       <br><br>
 
-
       <!-- subloque nif -->
-      NIF:
       <span class="puntero" (click)="showEditNif()" #tooltip="matTooltip"
             matTooltip="Haz click para editar"
             matTooltipPosition="right">
+            NIF:
             <a link>{{experto.nif}}</a>
       </span>
       <span *ngIf="edit_nif_show">
         <form [formGroup]="editFormNif">
           <mat-form-field appearance="outline">
-            <input matInput formControlName="nif" placeholder="Nif" (keydown.enter)="editNif()" class="form-control" pattern="[0-8]{8}[a-zA-Z]" minlength=9 maxlength=9/>
+            <input matInput formControlName="nif" placeholder="Nif" (keydown.enter)="editNif()" class="form-control" pattern="[0-9]{8}[a-zA-Z]" minlength=9 maxlength=9/>
           </mat-form-field>
         </form>
       </span>
@@ -106,10 +105,14 @@
 
   <!-- BLOQUE teléfono, email, dirección, CV, linkedin -->
   <span class="datos-contacto-experto">
-    <span class="padding-contacto clave-cont">
-      <mat-icon>phone</mat-icon>Teléfono
-    </span>
-    <span class="padding-contacto clave-valor">
+    <div class="padding-contacto clave-cont">
+      <span class="puntero" (click)="showEditTel()" #tooltip="matTooltip"
+        matTooltip="Haz click para editar"
+        matTooltipPosition="right">
+        <mat-icon>phone</mat-icon>Teléfono
+      </span>
+    </div>
+    <span class="padding-contacto valor-cont">
       <!-- subloque telefono -->
       <span class="puntero" (click)="showEditTel()" #tooltip="matTooltip"
             matTooltip="Haz click para editar"
@@ -126,7 +129,11 @@
     </span>
 
     <div class="padding-contacto clave-cont">
-      <mat-icon>email</mat-icon>Correo
+      <span class="puntero" (click)="showEditEmail()" #tooltip="matTooltip"
+        matTooltip="Haz click para editar"
+        matTooltipPosition="right">
+        <mat-icon>email</mat-icon>Correo
+      </span>
     </div>
     <span class="padding-contacto valor-cont">
       <!-- subloque email -->
@@ -145,7 +152,11 @@
     </span>
 
     <div class="padding-contacto clave-cont">
-      <mat-icon>home</mat-icon>Dirección
+      <span class="puntero" (click)="showEditDirec()" #tooltip="matTooltip"
+        matTooltip="Haz click para editar"
+        matTooltipPosition="right">
+        <mat-icon>home</mat-icon>Dirección
+      </span>
     </div>
     <span class="padding-contacto valor-cont">
       <!-- subloque dirección -->
@@ -171,7 +182,11 @@
     </div>
 
     <div class="padding-contacto clave-cont">
-      <mat-icon>insert_link</mat-icon>LinkedIn
+      <span class="puntero" (click)="showEditLinkedin()" #tooltip="matTooltip"
+        matTooltip="Haz click para editar"
+        matTooltipPosition="right">
+        <mat-icon>insert_link</mat-icon>LinkedIn
+      </span>
     </div>
     <span class="padding-contacto valor-cont">
       <!-- subloque linkedin -->
