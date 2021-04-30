@@ -15,11 +15,24 @@ export class TagsPageComponent implements OnInit, OnDestroy {
   tagsList:Tag[] = [];
   tagSubscription: Subscription = new Subscription();
   displayedColumns: string[] = ['nombre', 'creador', 'fecha_creacion', 'eliminar'];
+  deshabilitar: boolean = false;
 
   constructor(private tagService: TagService, public popup: MatDialog) { }
 
   ngOnInit(): void {
     this.tagSubscription = this.tagService.getAllTags().subscribe((response) => {
+      this.tagsList = response;
+    });
+  }
+
+  ordenNombre(orden:any){   // orden es ASC o DESC
+    this.tagSubscription = this.tagService.getAllTagsFilter("orden",orden).subscribe((response) => {
+      this.tagsList = response;
+    });
+  }
+
+  filtroNombre(filtro:any){
+    this.tagSubscription = this.tagService.getAllTagsFilter("nombre",filtro).subscribe((response) => {
       this.tagsList = response;
     });
   }

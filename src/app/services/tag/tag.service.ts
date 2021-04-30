@@ -23,6 +23,12 @@ export class TagService {
     return this.http.get(this.TAGS_URL, {headers})
   }
 
+  getAllTagsFilter(nameFilter:string, valueFilter:string): Observable<any>{
+    let token = 'Bearer ' + localStorage.getItem('Token')
+    let headers = {'Authorization':token}
+    return this.http.get(this.TAGS_URL+'?'+nameFilter+'='+valueFilter, {headers})
+  }
+
   deleteTag(id:number): Observable<any>{
     let token = 'Bearer ' + localStorage.getItem('Token')
     let headers = {'Authorization':token}

@@ -23,7 +23,16 @@
 
       <!-- Nombre etiqueta -->
       <ng-container matColumnDef="nombre">
-        <th mat-header-cell *matHeaderCellDef> ETIQUETA </th>
+        <th mat-header-cell *matHeaderCellDef><br>ETIQUETA
+          <mat-icon class="icono-orden" (click)="ordenNombre('ASC')">north</mat-icon>
+          <mat-icon class="icono-orden" (click)="ordenNombre('DESC')">south</mat-icon>
+          <br>
+          <!-- filtrar por nombre -->
+          <mat-form-field appearance="fill">
+            <mat-label>Buscar por nombre</mat-label>
+            <input matInput (keydown)="filtroNombre(input.value)" placeholder="nombre" #input>
+          </mat-form-field>
+        </th>
         <td mat-cell *matCellDef="let element">
           {{element.nombre}}
         </td>
@@ -31,7 +40,13 @@
 
       <!-- Creador -->
       <ng-container matColumnDef="creador">
-        <th mat-header-cell *matHeaderCellDef> CREADOR </th>
+        <th mat-header-cell *matHeaderCellDef><br>CREADOR <br>
+          <!-- filtro vacío -->
+          <mat-form-field appearance="fill">
+            <mat-label></mat-label>
+            <input matInput>
+          </mat-form-field>
+        </th>
         <td mat-cell *matCellDef="let element">
           {{element.creador.nombreCompleto}}
         </td>
@@ -39,7 +54,13 @@
 
       <!-- Fecha creación -->
       <ng-container matColumnDef="fecha_creacion">
-        <th mat-header-cell *matHeaderCellDef> FECHA CREACIÓN </th>
+        <th mat-header-cell *matHeaderCellDef><br>FECHA CREACIÓN <br>
+          <!-- filtro vacío -->
+          <mat-form-field appearance="fill">
+            <mat-label></mat-label>
+            <input matInput>
+          </mat-form-field>
+        </th>
         <td mat-cell *matCellDef="let element">
           {{element.created_at | date: 'dd/MM/yyyy' }}
         </td>
@@ -47,7 +68,7 @@
 
       <!-- Eliminar etiqueta -->
       <ng-container matColumnDef="eliminar">
-        <th mat-header-cell *matHeaderCellDef> ELIMINAR </th>
+        <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let element">
           <button mat-raised-button class="eliminar-etiqueta-button" (click)="deleteTag(element)"><mat-icon>delete_outline</mat-icon>Borrar Etiqueta</button>
         </td>
