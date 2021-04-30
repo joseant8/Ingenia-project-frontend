@@ -2,55 +2,85 @@
 <mat-card>
   <form [formGroup]="createForm" (submit)="createExpert()">
 
-    <h2 style="text-align: left;">Nuevo Experto</h2>
-    <br>
+    <div style="text-align: left;">
+      <h2>Nuevo Experto</h2>
+      <br>
 
-    NOMBRE*<br>
-    <mat-form-field appearance="outline">
-      <input matInput formControlName="nombre" placeholder="Nombre">
-    </mat-form-field>
-    <br>
-
-    NIF<br>
-    <mat-form-field appearance="outline">
-      <input matInput formControlName="nif" placeholder="Nif"/>
-    </mat-form-field>
-    <br>
-
-    EMAIL<br>
-    <mat-form-field appearance="outline">
-      <input matInput formControlName="contacto_email" placeholder="Email"/>
-    </mat-form-field>
-    <br>
-
-    TELÉFONO*<br>
-    <mat-form-field appearance="outline">
-      <input matInput formControlName="contacto_telefono" placeholder="Teléfono" pattern="[0-9]+" minlength=9 maxlength=9/>
-    </mat-form-field>
-    <br>
-
-    LINKEDIN<br>
-    <mat-form-field appearance="outline">
-      <input matInput formControlName="contacto_linkedin" placeholder="Teléfono"/>
-    </mat-form-field>
-    <br>
-
-    <div style="text-align:left; padding: 0.5vh;">
-      ETIQUETAS:
-      <mat-form-field appearance="fill">
-        <mat-label>Añadir etiqueta</mat-label>
-        <mat-select>
-          <mat-option *ngFor="let tag of listaTodasLasEtiquetas" [value]="tag" (click)="addEtiqueta(tag)">
-            {{tag.nombre}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-      <div class="etiquetas button-tag" *ngFor="let tag of listaEtiquetasNewExpert">
-        <button mat-button class="etiqueta" (click)="deleteTag(tag)">{{tag.nombre}}<mat-icon>close</mat-icon></button>
+      <!-- nombre y nif -->
+      <div class="dos-columnas-una-fila">
+        <div>
+          NOMBRE*<br>
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="nombre" placeholder="Nombre">
+          </mat-form-field>
+        </div>
+        <div class="espacio-fila">
+          NIF
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="nif" placeholder="Nif"/>
+          </mat-form-field>
+        </div>
       </div>
-    </div>
-    <br>
 
+      <!-- etiquetas -->
+      <div style="text-align:left; padding: 0.5vh;">
+        ETIQUETAS:
+        <mat-form-field appearance="fill">
+          <mat-label>Añadir etiqueta</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let tag of listaTodasLasEtiquetas" [value]="tag" (click)="addEtiqueta(tag)">
+              {{tag.nombre}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div class="etiquetas button-tag" *ngFor="let tag of listaEtiquetasNewExpert">
+          <button mat-button class="etiqueta" (click)="deleteTag(tag)">{{tag.nombre}}<mat-icon>close</mat-icon></button>
+        </div>
+      </div>
+      <br>
+
+      <!-- disponibilidad -->
+      DISPONIBILIDAD:
+        <mat-form-field appearance="fill">
+          <mat-label>Disponibilidad</mat-label>
+          <mat-select formControlName="disponibilidad">
+            <mat-option *ngFor="let disp of listaDisponibilidad" [value]="disp">
+              {{disp}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      <!-- teléfono y email-->
+      <div class="dos-columnas-una-fila">
+        <div>
+          TELÉFONO*<br>
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="contacto_telefono" placeholder="Teléfono" pattern="[0-9]+" minlength=9 maxlength=9/>
+          </mat-form-field>
+        </div>
+        <div class="espacio-fila">
+          EMAIL<br>
+            <mat-form-field appearance="outline">
+              <input matInput formControlName="contacto_email" placeholder="Email"/>
+            </mat-form-field>
+        </div>
+      </div>
+
+      <!-- dirección -->
+      DIRECCIÓN<br>
+      <mat-form-field appearance="outline">
+        <input matInput formControlName="direccion" placeholder="Dirección"/>
+      </mat-form-field>
+      <br>
+
+      <!-- linkedin -->
+      LINKEDIN<br>
+      <mat-form-field appearance="outline">
+        <input matInput formControlName="contacto_linkedin" placeholder="LinkedIn"/>
+      </mat-form-field>
+      <br>
+
+    </div>
 
 
 

@@ -5,6 +5,7 @@
 
 .mat-form-field {
   text-align: left;
+  display: block;
 }
 
 .etiqueta {
@@ -16,3 +17,14 @@
   background-color: #D66464;
   color: white;
 }
+
+.dos-columnas-una-fila {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.dos-columnas-una-fila .espacio-fila{
+  padding-left: 2vh;
+}
+
+

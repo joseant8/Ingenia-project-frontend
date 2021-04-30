@@ -17,6 +17,7 @@ export class NewExpertFormComponent implements OnInit, OnDestroy {
   expertSubscription: Subscription = new Subscription();
   @Input() listaTodasLasEtiquetas: Tag[] = [];
   listaEtiquetasNewExpert: Tag[] = [];
+  listaDisponibilidad: String[] = ['mañanas', 'tardes', 'mañanas y tardes'];
 
   constructor(private router: Router, private expertService: ExpertService, private formBuilder: FormBuilder, private tagService: TagService) { }
 
@@ -26,6 +27,8 @@ export class NewExpertFormComponent implements OnInit, OnDestroy {
       contacto_email: [ , Validators.email],
       contacto_telefono: [, Validators.required],
       nif: [],
+      direccion: [],
+      disponibilidad: [],
       contacto_linkedin: []
     });
   }
@@ -38,6 +41,8 @@ export class NewExpertFormComponent implements OnInit, OnDestroy {
         contacto_email: this.createForm.value.contacto_email,
         contacto_telefono: this.createForm.value.contacto_telefono,
         contacto_linkedin: this.createForm.value.contacto_linkedin,
+        disponibilidad: this.createForm.value.disponibilidad,
+        direccion: this.createForm.value.direccion,
         etiquetas: this.listaEtiquetasNewExpert
       }
       this.expertSubscription = this.expertService.createExpert(body).subscribe((response) => {
