@@ -15,11 +15,12 @@ export class Expert implements IExpert{
   contacto_email: string;
   fichero_cv: string;
   contacto_linkedin: string;
+  direccion: string;
   etiquetas: Tag[];
 
   constructor(id:number, nombre:string, created_at:Date, updated_at:Date, nif: string, estado:string, disponibilidad: string,
     puntuacion:number, origen: string, contacto_telefono: string, contacto_email: string, fichero_cv: string, contacto_linkedin: string,
-    etiquetas: Tag[]) {
+    direccion: string, etiquetas: Tag[]) {
     this.id = id;
     this.nombre = nombre;
     this.created_at = created_at;
@@ -33,6 +34,7 @@ export class Expert implements IExpert{
     this.contacto_email = contacto_email;
     this.fichero_cv = fichero_cv;
     this.contacto_linkedin = contacto_linkedin;
+    this.direccion = direccion;
     this.etiquetas = etiquetas;
   }
 }

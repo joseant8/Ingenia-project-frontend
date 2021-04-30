@@ -14,5 +14,6 @@ export interface IExpert {
   contacto_email: string,
   fichero_cv: string,
   contacto_linkedin: string,
+  direccion: string,
   etiquetas: Tag[]
 }
