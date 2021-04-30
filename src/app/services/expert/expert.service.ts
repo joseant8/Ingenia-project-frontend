@@ -143,4 +143,13 @@ export class ExpertService {
       })
     );
   }
+
+
+  //Eliminar experto
+  deleteExpert(id:number): Observable<any>{
+    let token = 'Bearer ' + localStorage.getItem('Token')
+    let headers = {'Authorization':token}
+    return this.http.delete(this.EXPERTS_URL+'/'+id, {headers})
+  }
+
 }

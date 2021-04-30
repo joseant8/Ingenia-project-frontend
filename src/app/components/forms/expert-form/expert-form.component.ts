@@ -1,10 +1,12 @@
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Expert } from 'src/app/models/expert/expert.model';
 import { Tag } from 'src/app/models/tag/tag.model';
 import { ExpertService } from 'src/app/services/expert/expert.service';
+import { PopupDeleteExpertComponent } from '../../popups/popup-delete-expert/popup-delete-expert.component';
 
 @Component({
   selector: 'app-expert-form',
@@ -37,7 +39,7 @@ export class ExpertFormComponent implements OnInit, OnDestroy {
   edit_linkedin_show: boolean = false;
   edit_direc_show: boolean = false;
 
-  constructor(private router: Router, private expertService: ExpertService, private formBuilder: FormBuilder) { }
+  constructor(private router: Router, private expertService: ExpertService, private formBuilder: FormBuilder, public popup: MatDialog) { }
 
 
   ngOnInit(): void {
@@ -238,6 +240,15 @@ export class ExpertFormComponent implements OnInit, OnDestroy {
       window.location.reload();
     });
   }
+
+
+    // Eliminar experto
+    deleteExpert(){
+      const dialogRef = this.popup.open(PopupDeleteExpertComponent, {
+        width: '60vh',
+        data: this.experto
+      });
+    }
 
 
   getColorEstado(estado: string) {
