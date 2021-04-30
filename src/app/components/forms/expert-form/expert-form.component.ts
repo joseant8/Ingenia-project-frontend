@@ -212,12 +212,21 @@ export class ExpertFormComponent implements OnInit, OnDestroy {
 
   // Añadir etiqueta en el experto
   addEtiqueta(id:number): void{
-    let body = {
-      etiqueta_add_id: id
-    }
-    this.expertSubscription = this.expertService.editExpert(this.experto.id, body).subscribe((response) => {
-      window.location.reload();
+    let isTag: boolean = false;
+    this.experto.etiquetas.map((tag) => {
+      if (tag.id == id){
+        isTag = true;
+      }
     });
+
+    if(!isTag){
+      let body = {
+        etiqueta_add_id: id
+      }
+      this.expertSubscription = this.expertService.editExpert(this.experto.id, body).subscribe((response) => {
+        window.location.reload();
+      });
+    }
   }
 
   // Eliminar etiqueta en el experto
