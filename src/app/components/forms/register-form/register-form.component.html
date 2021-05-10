@@ -5,17 +5,26 @@
 <mat-card>
   <form [formGroup]="registerForm" (submit)="register()">
 
+    Nombre Completo<br>
     <mat-form-field appearance="outline">
       <input matInput formControlName="nombreCompleto" placeholder="Nombre Completo"/>
     </mat-form-field>
     <br>
+    Email<br>
     <mat-form-field appearance="outline">
       <input matInput formControlName="email" placeholder="Email"/>
     </mat-form-field>
     <br>
+    <span #tooltip="matTooltip"
+        matTooltip="La contraseña debe tener una longitud mínima de 8 caracteres y contener al menos una letra y un número"
+        matTooltipPosition="right">
+        Contraseña<mat-icon>info_outlined</mat-icon>
+    </span>
+    <br>
     <mat-form-field appearance="outline">
       <input matInput formControlName="password" placeholder="Contraseña">
     </mat-form-field>
+
 
     <mat-card-actions>
       <span>
